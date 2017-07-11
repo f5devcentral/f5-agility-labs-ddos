@@ -32,13 +32,13 @@ Task 2 – Configure the following UDP Flood vectors for ServerNet:
 
      # sudo bash
      # cd ~/scripts
-     # ./udp\_flood.sh
+     # ./udp_flood.sh
 
   From the menu, select ‘1’ to start the attack
 
   .. code-block:: console
 
-     root@attacker-a:~/scripts# ./udp\_flood.sh
+     root@attacker-a:~/scripts# ./udp_flood.sh
 
      1)Attack start
      2)Attack end
