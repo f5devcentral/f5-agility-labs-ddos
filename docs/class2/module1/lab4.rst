@@ -6,13 +6,13 @@ the security administrator is unsure what values to assign to a few
 common vectors. Note that auto-thresholding is useful at both the Device
 and Protected Object levels
 
-**Note: This demo may place significant stress on the demo environment.
-This may make the DHD UI less responsive. This is unavoidable since for
-auto-thresholding to block, the attack must be damaging enough to cause
-stress, which will push the CPU on the Virtual Environment very high.
-Remember that this is a virtual environment with minimal resources for
-lab under high stress and that the Hybrid Defender appliances mitigate
-these attacks in dedicated hardware.**
+.. NOTE:: This demo may place significant stress on the demo environment.
+   This may make the DHD UI less responsive. This is unavoidable since for
+   auto-thresholding to block, the attack must be damaging enough to cause
+   stress, which will push the CPU on the Virtual Environment very high.
+   Remember that this is a virtual environment with minimal resources for
+   lab under high stress and that the Hybrid Defender appliances mitigate
+   these attacks in dedicated hardware.**
 
 Task 1 – Configure Auto Thresholding
 ------------------------------------

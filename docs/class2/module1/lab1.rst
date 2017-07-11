@@ -4,16 +4,16 @@ Lab 1 – DDoS Hybrid Defender Setup
 Task 1 – BIG-IP Herculon Hybrid Defender Licensing and Provisioning
 -------------------------------------------------------------------
 
-→NOTE: When you first power up a F5 DHD device you would go through the
-steps of Licensing and Provisioning. We have assigned the management IP,
-hostname, NTP and DNS servers. You will be re-activating the license
-using a new license key.
+.. NOTE:: When you first power up a F5 DHD device you would go through the
+   steps of Licensing and Provisioning. We have assigned the management IP,
+   hostname, NTP and DNS servers. You will be re-activating the license
+   using a new license key.
 
-→NOTE: For Silverline device registration to function properly there
-must be some specific considerations. The BIG-IP system must have a
-unique device ID, which is comprised of attributes like Base MAC and
-registration key. Hence we are re-licensing the device as all student
-instances are spun up using the same license.
+.. NOTE:: For Silverline device registration to function properly there
+   must be some specific considerations. The BIG-IP system must have a
+   unique device ID, which is comprised of attributes like Base MAC and
+   registration key. Hence we are re-licensing the device as all student
+   instances are spun up using the same license.
 
 Use a web browser (Chrome in incognito mode) to log into the WebUI of
 your DHD at https://10.1.1.245 . or use the bookmarked shortcut. Accept

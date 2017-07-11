@@ -9,13 +9,13 @@ In the interest of having a repeatable demo in an environment where many
 different types of traffic are executed, we are focusing on the
 per-VS/per-PO auto-thresholding
 
-**→NOTE:** This demo may place significant stress on the demo
-environment. Due to the virtual environment limitations, this may make
-the DHD UI less responsive. This is unavailable since for
-auto-thresholding to block, the attack must be damaging enough to cause
-stress, which will push the CPU on the VE very high. Remind the audience
-that this is a virtual environment under high stress and that the Hybrid
-Defender appliances mitigate these attacks in dedicated hardware
+.. NOTE:: This demo may place significant stress on the demo
+   environment. Due to the virtual environment limitations, this may make
+   the DHD UI less responsive. This is unavailable since for
+   auto-thresholding to block, the attack must be damaging enough to cause
+   stress, which will push the CPU on the VE very high. Remind the audience
+   that this is a virtual environment under high stress and that the Hybrid
+   Defender appliances mitigate these attacks in dedicated hardware
 
 - Open the following tabs in the Hybrid Defender WebUI:
 
