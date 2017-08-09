@@ -312,7 +312,7 @@ Add bad actor detection for a for the UDP flood protection.
 -  **Security>>DoS Protection>>DoS Overview** (leave filter at default:
    "DoS Attack" and set refresh rate to 20s)
 
--  **Statistics>>DoS Visibility **
+-  **Statistics>>DoS Visibility**
 
 -  **Security>>Event Logs>>Network->IP Intelligence**
 

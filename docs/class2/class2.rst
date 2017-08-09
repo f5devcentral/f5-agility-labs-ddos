@@ -1,8 +1,6 @@
 Intermediate DDoS Protection
 ============================
 
-.. TODO:: Need class description
-
 This class covers the following topics:
 
 - Topics here

@@ -255,7 +255,7 @@ Task 2 – Use a Protected Object to Mitigate a DNS Reverse Query Flood
 -  In the BIG-IP Configuration Utility, open the **DoS Protection >
    Quick Configuration** page
 
--  In the **Protected Objects** section click **DNSServer. **
+-  In the **Protected Objects** section click **DNSServer**.
 
 -  In the **DNS** row click the **+** icon, and then click **DNS ANY
    Query.**

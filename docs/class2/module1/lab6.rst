@@ -142,7 +142,7 @@ Task 2 – Configure Protection/Mitigation, launch attack and view reports
 -  Stop the Slow Read attack by using CTRL+C.
 
 **This concludes your hands on labs. In this class you learned how to
-mitigated various DDoS attacks using F5 BIGIP Hybrid Defender (DHD). **
+mitigated various DDoS attacks using F5 BIGIP Hybrid Defender (DHD).**
 
 .. |image72| image:: /_static/class2/image73.png
    :width: 5.30972in

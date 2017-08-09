@@ -72,7 +72,7 @@ the SSL warning and proceed to connect.
 Task 2 – BIG-IP Herculon Hybrid Defender Initial Setup
 ------------------------------------------------------
 
--  Click **System>>Platform **
+-  Click **System>>Platform**
 
 -  Change the hostname to
    **<yourfirstinitiallastname>.hybriddefender.f5agility.com**. For
