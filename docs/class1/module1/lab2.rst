@@ -394,43 +394,8 @@ flood and review the results.
 
 - On the Jumpbox type **Ctrl + C** to stop the attack.
 
-Task 6 – Configure Protected Object-Level TCP PSH Attack Protection
--------------------------------------------------------------------
 
-Configure object-level DoS TCP PUSH flood protection, and then issue an
-UPD flood and review the results.
-
-- In the Configuration Utility, open the **DoS Protection > Quick
-  Configuration** page and in the **Protected Objects** section click
-  **ServerNet**.
-
-- In the **Sweep** row click the **+** icon, and then click **Sweep**.
-
-- On the right-side of the page configure using the following
-  information, and then click **Update**.
-
-  +--------------------+---------------------------------------------------+
-  | **Packet Types**   | Move **All IPv4** to **Available** list           |
-  |                    |                                                   |
-  |                    | Move **TCP PSH Flood** to the **Selected** list   |
-  +--------------------+---------------------------------------------------+
-
-- On the Jumpbox in the **Attacker A** PuTTY window type (or copy and
-  paste) the following command:
-
-  ``for i in {1..15}; do hping3 -c 100000 -P -i u1 -I eth1 10.1.20.13; done``
-
-- Let the attack run for about 15 seconds before moving on.
-
-- In the Configuration Utility, open **the Security** **Event Logs >
-  DoS > Network > Events** page.
-
-- The new sweep attack type is being blocked.
-
-- On the Jumpbox type **Ctrl + C** to stop the attack if it hasn’t
-  already completed.
-
-Task 7 – View the DoS Visibility Page 
+Task 6 – View the DoS Visibility Page 
 --------------------------------------
 
 Use the new DoS Visibility page to view statistics about the DoS attacks
