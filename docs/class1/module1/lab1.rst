@@ -9,6 +9,11 @@ Task 1 – Initial Set-up
 - Open a web browser and access supplied link.(Given at Location)
 
 - Login to the BIG-IP Configuration Utility via your preferred browser?
+ 
+ .. NOTE:: When you first power up a F5 DHD device you would go through the
+  steps of Licensing and Provisioning.  We have assigned the management
+  IP, hostname, NTP and DNS servers.  You will be re-activating the
+  license using a new license key.
 
 - On the **System > Platform** page configure the following, and then
   click **Update**.
@@ -44,6 +49,11 @@ Task 1 – Initial Set-up
   |image6|
 
 - Click **Next** and explore **Resource Provisioning** page
+
+  ..NOTE:: The above task ensures that you are using a purpose built
+  DDoS Hybrid Defender.  If you are familiar with other
+  F5 Modules/Technology that you have used in the past, you will
+  notice that we have none of those provisioned.
 
 - When done click **Submit**.
 
