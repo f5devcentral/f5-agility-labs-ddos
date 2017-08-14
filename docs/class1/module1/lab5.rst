@@ -124,13 +124,7 @@ finished.
      # cd ~/scripts
      # ./autothreshold-reset.sh
 
-- Clean-up. After disabling auto-thresholding, clear the learning on
-  the Hybrid Defender CLI with:
 
-  .. code-block:: console
-
-     # cd ~/scripts
-     # ./autothreshold-reset.sh
 
 Learn More
 ==========

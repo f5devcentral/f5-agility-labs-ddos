@@ -33,7 +33,7 @@ behind the BIG-IP DHD.
 - Examine the **tcpdump** window and verify ICMP packets are flowing
   through the BIG-IP DHD.
 
-  .. NOTE:: The listener for the ICMP packets is the VLAN group.
+.. NOTE:: The listener for the ICMP packets is the VLAN group.
 
 - Cancel the ping command, then verify the **tcpdump** stops receiving
   ICMP packets, and then press **Enter** several times to clear the
@@ -48,9 +48,8 @@ behind the BIG-IP DHD.
 - In the **Bad Headers** row click the **+** icon, and then click **Bad
   Source**.
 
-- On the right-side of the page configure using the following
-  information.
-
+- On the right-side of the page select the drop-down to "Don't Enforce"
+  
   |image25|
 
 - In the **Flood** row click the **+** icon, and then click **ICMPv4
@@ -59,24 +58,17 @@ behind the BIG-IP DHD.
 If you minimize by clicking the + icon, make seeing the other sections
 easier.
 
-- On the right-side of the page configure using the following
-  information.
+- On the right-side of the page select the drop-down to "Don't Enforce"
+  
+  |image54|
 
-  +-----------------------------------+------------+
-  | **Detection Threshold PPS**       | Infinite   |
-  +===================================+============+
-  | **Detection Threshold Percent**   | Infinite   |
-  +-----------------------------------+------------+
-  | **Rate/Leak Limit**               | Infinite   |
-  +-----------------------------------+------------+
-
-- Apply the settings above for **TCP SYN flood** and **UDP Flood**.,
+  - Apply the settings above for **TCP SYN flood** and **UDP Flood**.,
   and then click **Update**.
 
 - On the Jumpbox in the **Attacker** PuTTY window type (or copy and
   paste) the following:
 
-  ..code-block:: console
+  ..Code-block::console
 
     sudo su
     cd scripts
@@ -159,8 +151,7 @@ ICMPv4 flood and review the results.
 - In the Configuration Utility, open the **Security > Event Logs > DoS
   > Network > Events** page.
 
-  .. NOTE:: You may need to refresh this page several times before
-     the log files display.
+.. NOTE:: You may need to refresh this page several times before the log files display.
 
 - Sort the event by **Time** in descending order.
 
@@ -394,43 +385,8 @@ flood and review the results.
 
 - On the Jumpbox type **Ctrl + C** to stop the attack.
 
-Task 6 – Configure Protected Object-Level TCP PSH Attack Protection
--------------------------------------------------------------------
 
-Configure object-level DoS TCP PUSH flood protection, and then issue an
-UPD flood and review the results.
-
-- In the Configuration Utility, open the **DoS Protection > Quick
-  Configuration** page and in the **Protected Objects** section click
-  **ServerNet**.
-
-- In the **Sweep** row click the **+** icon, and then click **Sweep**.
-
-- On the right-side of the page configure using the following
-  information, and then click **Update**.
-
-  +--------------------+---------------------------------------------------+
-  | **Packet Types**   | Move **All IPv4** to **Available** list           |
-  |                    |                                                   |
-  |                    | Move **TCP PSH Flood** to the **Selected** list   |
-  +--------------------+---------------------------------------------------+
-
-- On the Jumpbox in the **Attacker A** PuTTY window type (or copy and
-  paste) the following command:
-
-  ``for i in {1..15}; do hping3 -c 100000 -P -i u1 -I eth1 10.1.20.13; done``
-
-- Let the attack run for about 15 seconds before moving on.
-
-- In the Configuration Utility, open **the Security** **Event Logs >
-  DoS > Network > Events** page.
-
-- The new sweep attack type is being blocked.
-
-- On the Jumpbox type **Ctrl + C** to stop the attack if it hasn’t
-  already completed.
-
-Task 7 – View the DoS Visibility Page 
+Task 6 – View the DoS Visibility Page 
 --------------------------------------
 
 Use the new DoS Visibility page to view statistics about the DoS attacks
@@ -517,8 +473,7 @@ This table displays the attack details from each country.
 
 - At the top of the page open the **Analysis** page.
 
-  .. NOTE:: The requests are still filtered for the ICMPv4 flood results
-     for China.
+.. NOTE:: The requests are still filtered for the ICMPv4 flood results for China.
 
 - Drag the resize handle on the as far to the right as possible.
 
@@ -570,4 +525,8 @@ This table displays the attack details from each country.
 .. |image34| image:: /_static/image36.png
    :width: 3.06463in
    :height: 0.92886in
+.. |image54| image:: /_static/image54.png
+   :width: 2.10000in
+   :height: 1.88007
+   
 
