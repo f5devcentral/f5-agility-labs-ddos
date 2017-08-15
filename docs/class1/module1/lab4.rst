@@ -1,91 +1,101 @@
-Lab 4 - Bad Actor Detection Demo
-================================
+Lab 3 - Multi-vector Demo
+=========================
 
-In this demo you will run an attack from specific IP addresses. The
-Hybrid Defender will be configured to perform bad actor detection, limit
-the attack on a per-IP basis with more aggressive thresholds and then,
-based on this detection, automatically blacklist the offending IP
-address adding them to the (hardware-accelerated) dynamic blacklist
+In this simple demo you will launch a small number of network attacks
+and show the configuration, logging and reporting capabilities of the
+Hybrid Defender. The point of this demo is to provide context for a UI
+walkthrough with some live data.
 
-Task 1 - Open the following tabs in the DHD UI:
------------------------------------------------
+Task 1 - Access DoS Quick Configuration and display the ServerNet protected object
+----------------------------------------------------------------------------------
 
--  **DoS Protection->Quick Configuration->ServerNet**
+This protected object is defending all ports/protocols for 10.1.20.0/24,
+which is the network behind the Hybrid Defender. Attacks will be
+launched at 10.1.20.12, which is an interface on the LAMP server. Verify
+that the following vectors are configured:
 
--  **Security->DoS Protection->DoS Overview** (leave filter at default:
-   “DoS Attack”)
+|image35|
 
--  **Statistics->DoS Visibility**
+Launch the attacks and show the behavior
 
--  **Security->Event Logs->Network->IP Intelligence**
-
-Task 2 – Configure the following UDP Flood vectors for ServerNet:
------------------------------------------------------------------
+- Open the following tabs in the DHD UI:
 
 - **DoS Protection->Quick Configuration->ServerNet**
 
-  |image40|
+- **Security->DoS Protection->DoS Overview** (leave the filter at
+  default: ’DoS Attack’)
 
-- Access the Attacker system CLI and run the UDP flood attack:
+- **Statistics->DoS Visibility**
 
-  .. code-block:: console
+- Access the Attacker System CLI and run the attack
 
-     # sudo bash
-     # cd ~/scripts
-     # ./udp_flood.sh
+  ..code-block:: console
 
-  From the menu, select ‘1’ to start the attack
+    cd ~/scripts
+    # sudo bash
+    # ./multivector.sh
 
-  .. code-block:: console
+  You will have to click refresh a few times to get the attacks to show.
 
-     root@attacker-a:~/scripts# ./udp_flood.sh
+- Click Refresh on the DoS Overview page. You will see some attacks
+  mitigated by Device Configuration and some mitigated by the more
+  specific settings on the ServerNet Protected Object:
 
-     1)Attack start
-     2)Attack end
-     3)Quit
+  |image36|
 
-     # ?
+Navigate to **Security->Event Logs->DoS->Network->Events**.
 
-.. NOTE:: This attack is relatively short-lived. You can launch it
-   again if the attack ends and you are not finished showing the various
-   reports. Simply type ‘1’ again, to re-run the attack
+- Click on “custom search…” link.
 
-- In the Hybrid Defender UI, show the **Security > DoS >DoS Overview**
-  page. Note the blocks by Bad Actor.
+- Drag one of the values from the “Attack Type” column into the custom
+  search builder. From the Action column, drag Drop into the search
+  builder. Click “Search”.
 
-  |image41|
+  |image37|
 
-- In the Hybrid Defender UI, show the **Security > Events > Network >
-  IP Intelligence** Event Logs. Note the IP addresses that are being
-  added to the denial\_of\_service blacklist.
+- Further explore the DoS Event logs as needed for your demo. For
+  example, clear the search and identify the “Stop” and “Start” times
+  for an attack, etc.
 
-  |image42|
+- In the Hybrid Defender WebUI, access the DoS Visibility reporting
+  tool at **Statistics->DoS Visibility.**
 
-- In the Hybrid Defender WebUI, show the **Statistics >** **DoS
-  Visibility**. Expand the Vectors inspector and select UDP Flood. When
-  it updates, select a flood from the timeline. Note in the Attacks
-  panel the #IPs blocked is 10.
+.. NOTE:: DoS Visibility is a reporting tool, not a real-time
+   monitoring tool. Events are displayed, much like other AVR-based
+   reporting, in 5 minute windows. Do not expect events to be shown here
+   immediately after running an attack. Be aware of this timing when doing
+   a demo. Quicker/real-time monitoring of on-going DoS attacks is best
+   accomplished in the DoS Event Logs and DoS Overview areas of the WebUI
 
-  |image43|
+- You should see the attacks in the timeline and a variety of details in
+  the windows. Use the slider to shorten the timeframe if needed, and
+  click the Network filter, to focus on L4 activities.
 
-From the menu, select ‘2’ to end the attack
+  |image38|
 
-or
+  .. NOTE:: that you can select events from the timeline and see details
+     about the attacks
 
-.. code-block:: console
+  |image39|
 
-   # sudo bash
-   # killall -9 hping3
+- Log in to Silverline at https://portal.f5silverline.com.
 
-.. |image40| image:: /_static/image42.png
-   :width: 6.54028in
-   :height: 3.96667in
-.. |image41| image:: /_static/image43.png
-   :width: 6.55417in
-   :height: 1.14653in
-.. |image42| image:: /_static/image44.png
-   :width: 6.55428in
-   :height: 1.89375in
-.. |image43| image:: /_static/image45.png
-   :width: 6.58750in
-   :height: 6.24028in
+- Navigate to **Monitor and Analyze > Stats > Hybrid Device**. Locate your
+  device and explore the interface.
+
+.. |image35| image:: /_static/image37.png
+   :width: 6.41389in
+   :height: 4.36042in
+.. |image36| image:: /_static/image38.png
+   :width: 7.29722in
+   :height: 1.87424in
+.. |image37| image:: /_static/image39.png
+   :width: 7.35069in
+   :height: 2.26358in
+.. |image38| image:: /_static/image40.png
+   :width: 7.40417in
+   :height: 1.06667in
+.. |image39| image:: /_static/image41.png
+   :width: 7.28750in
+   :height: 3.65347in
+
