@@ -1,101 +1,532 @@
-Lab 3 - Multi-vector Demo
-=========================
+Lab 2 – Configuring Hybrid Defender DDoS protection
+===================================================
 
-In this simple demo you will launch a small number of network attacks
-and show the configuration, logging and reporting capabilities of the
-Hybrid Defender. The point of this demo is to provide context for a UI
-walkthrough with some live data.
+Task 1 – Disable Device-Level DHD DoS Protection
+------------------------------------------------
 
-Task 1 - Access DoS Quick Configuration and display the ServerNet protected object
-----------------------------------------------------------------------------------
+From the DHD UI disable device-level DoS flood protection, and then
+issue an ICMPv4 flood and **review** the results.
 
-This protected object is defending all ports/protocols for 10.1.20.0/24,
-which is the network behind the Hybrid Defender. Attacks will be
-launched at 10.1.20.12, which is an interface on the LAMP server. Verify
-that the following vectors are configured:
+- RDP to the Windows Jumpbox (un: external\_user – pw: f5DEMOs4u) and
+  use **PuTTY** to access the BIG-IP (10.1.1.245) and resize window by
+  making it wider. Login with root/f5DEMOs4u.
 
-|image35|
+- At the **config** prompt, type (or copy and paste) the following
+  command:
 
-Launch the attacks and show the behavior
+  ``tcpdump -i 0.0``
 
-- Open the following tabs in the DHD UI:
+- Open a second **PuTTY** window and Load the Attacker Saved Session at
+  **10.1.1.7** and log in as **ubuntu. I**\ t will use **a pre-loaded
+  public key** as the credentials\ **.**
 
-- **DoS Protection->Quick Configuration->ServerNet**
+  |image23|
 
-- **Security->DoS Protection->DoS Overview** (leave the filter at
-  default: ’DoS Attack’)
+- At the **config** prompt, type (or copy and paste) the following
+  command:
 
-- **Statistics->DoS Visibility**
+  ``ping 10.1.20.12``
 
-- Access the Attacker System CLI and run the attack
+The attacker can successfully communicate with a back-end resource
+behind the BIG-IP DHD.
 
-  ..code-block:: console
+- Examine the **tcpdump** window and verify ICMP packets are flowing
+  through the BIG-IP DHD.
 
-    cd ~/scripts
-    # sudo bash
-    # ./multivector.sh
+.. NOTE:: The listener for the ICMP packets is the VLAN group.
 
-  You will have to click refresh a few times to get the attacks to show.
+- Cancel the ping command, then verify the **tcpdump** stops receiving
+  ICMP packets, and then press **Enter** several times to clear the
+  recent log entries.
 
-- Click Refresh on the DoS Overview page. You will see some attacks
-  mitigated by Device Configuration and some mitigated by the more
-  specific settings on the ServerNet Protected Object:
+- In the Configuration Utility, in the **DoS Protection, Quick
+  Configuration, Device Protection** section click Device
+  Configuration.
 
-  |image36|
+  |image24|
 
-Navigate to **Security->Event Logs->DoS->Network->Events**.
+- In the **Bad Headers** row click the **+** icon, and then click **Bad
+  Source**.
 
-- Click on “custom search…” link.
+- On the right-side of the page select the drop-down to "Don't Enforce"
+  
+  |image25|
 
-- Drag one of the values from the “Attack Type” column into the custom
-  search builder. From the Action column, drag Drop into the search
-  builder. Click “Search”.
+- In the **Flood** row click the **+** icon, and then click **ICMPv4
+  flood**.
 
-  |image37|
+If you minimize by clicking the + icon, make seeing the other sections
+easier.
 
-- Further explore the DoS Event logs as needed for your demo. For
-  example, clear the search and identify the “Stop” and “Start” times
-  for an attack, etc.
+- On the right-side of the page select the drop-down to "Don't Enforce"
+  
+  |image54|
 
-- In the Hybrid Defender WebUI, access the DoS Visibility reporting
-  tool at **Statistics->DoS Visibility.**
+  - Apply the settings above for **TCP SYN flood** and **UDP Flood**.,
+  and then click **Update**.
 
-.. NOTE:: DoS Visibility is a reporting tool, not a real-time
-   monitoring tool. Events are displayed, much like other AVR-based
-   reporting, in 5 minute windows. Do not expect events to be shown here
-   immediately after running an attack. Be aware of this timing when doing
-   a demo. Quicker/real-time monitoring of on-going DoS attacks is best
-   accomplished in the DoS Event Logs and DoS Overview areas of the WebUI
+- On the Jumpbox in the **Attacker** PuTTY window type (or copy and
+  paste) the following:
 
-- You should see the attacks in the timeline and a variety of details in
-  the windows. Use the slider to shorten the timeframe if needed, and
-  click the Network filter, to focus on L4 activities.
+  ..Code-block::console
 
-  |image38|
+    sudo su
+    cd scripts
+    ls
 
-  .. NOTE:: that you can select events from the timeline and see details
-     about the attacks
+.. NOTE:: Ignore the “unable to resolve host Attacker message”
 
-  |image39|
+These are the different scripts we’ll be using during the exercises to
+simulate DoS attacks.
 
-- Log in to Silverline at https://portal.f5silverline.com.
+- Type (or copy and paste) the following commands:
 
-- Navigate to **Monitor and Analyze > Stats > Hybrid Device**. Locate your
-  device and explore the interface.
+  ``for i in {1..10}; do ./icmpflood.sh; done``
 
-.. |image35| image:: /_static/image37.png
-   :width: 6.41389in
-   :height: 4.36042in
-.. |image36| image:: /_static/image38.png
-   :width: 7.29722in
-   :height: 1.87424in
-.. |image37| image:: /_static/image39.png
-   :width: 7.35069in
-   :height: 2.26358in
-.. |image38| image:: /_static/image40.png
-   :width: 7.40417in
-   :height: 1.06667in
-.. |image39| image:: /_static/image41.png
-   :width: 7.28750in
-   :height: 3.65347in
+This script launches 1,000,000 ICMP requests and then repeats for a
+total of ten occurrences.
+
+- View the **tcpdump** window and verify that ICMP attack traffic is
+  reaching the back-end server.
+
+- Let the attack run for about 15 seconds before moving on.
+
+- In the Configuration Utility, open the **Statistics > Performance >
+  Performance** page.
+
+- View the Active Connections and Total New Connections charts.
+
+- There is a drastic spike in active connections.
+
+  |image26|
+
+- View the Throughput (bits) and Throughput (packets) charts.
+
+There is also a drastic spike in both bits per second and packets per
+second.
+
+- Open the **Security > Event Logs > DoS > Network > Events** page.
+
+The log file is empty as we disabled device-level flood protection on
+BIG-IP DHD.
+
+- On the Jumpbox Attacker shell slowly type **Ctrl + C** several times
+  until back at the **/scripts** prompt.
+
+Task 2 – Configure Device-Level IPv4 Flood DHD DoS Protection
+-------------------------------------------------------------
+
+Configure device-level DoS IPv4 flood protection, and then issue an
+ICMPv4 flood and review the results.
+
+- In the Configuration Utility, open the **DoS Protection > Quick
+  Configuration** page and click **Device Configuration**.
+
+- In the **Flood** row click the **+** icon, and then click **ICMPv4
+  flood**.
+
+- On the right-side of the page configure using the following
+  information, and then click **Update**.
+
+  +-------------------------------+-----------------+
+  | **Detection Threshold PPS**   | Specify: 1000   |
+  +===============================+=================+
+  | **Rate/Leak Limit**           | Specify: 1000   |
+  +-------------------------------+-----------------+
+
+- On the Jumpbox in the **Attacker A** PuTTY window re-run the
+  following command:
+
+  ``for i in {1..10}; do ./icmpflood.sh; done``
+
+- Let the attack run for about 15 seconds before moving on.
+
+- In the Configuration Utility, open the **Security > Dos Protection >
+  DoS Overview >** page
+
+- You should see the attacks and statistics. Explore the sections
+
+  |image27|
+
+- In the Configuration Utility, open the **Security > Event Logs > DoS
+  > Network > Events** page.
+
+.. NOTE:: You may need to refresh this page several times before the log files display.
+
+- Sort the event by **Time** in descending order.
+
+There are now log entries showing dropped packets.
+
+- The DoS Source is Volumetric, Aggregated across all SrcIP's,
+  Device-Wide attack, metric:PPS,
+
+- The type is **ICMPv4 flood**.
+
+- The action is **Drop**.
+
+- On the Jumpbox Attacker shell slowly type **Ctrl + C** several times
+  until back at the **/scripts** prompt.
+
+Reset the Device-Level ICMPv4 Flood Settings
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- In the Configuration Utility, open the **DoS Protection > Quick
+  Configuration** page and click **Device Configuration**.
+
+- In the **Flood** row click the **+** icon, and then click **ICMPv4
+  flood**.
+
+- On the right-side of the page configure using the following
+  information, and then click **Update**.
+
+  +-------------------------------+------------+
+  | **Detection Threshold PPS**   | Infinite   |
+  +===============================+============+
+  | **Rate/Leak Limit**           | Infinite   |
+  +-------------------------------+------------+
+
+Task 3 – Configure Protected Object-Level IPv4 Flood DHD DoS Protection
+-----------------------------------------------------------------------
+
+Configure object-level DoS IPv4 flood protection, and then issue an
+ICMPv4 flood and review the results.
+
+- On the Protect Objects page, in the Protected Objects section click
+  Create.
+
+- Configure a protected object using the following information, and
+  then click **Create**.
+
+  +--------------------------+--------------------+
+  | **Name**                 | ServerNet          |
+  +==========================+====================+
+  | **IP Address**           | 10.1.20.0/22       |
+  +--------------------------+--------------------+
+  | **Port**                 | \*                 |
+  +--------------------------+--------------------+
+  | **Protocol**             | All Protocols      |
+  +--------------------------+--------------------+
+  | **Protection Settings:   | Log and Mitigate   |
+  | Action**                 |                    |
+  +--------------------------+--------------------+
+  | **Protection Settings:   | IPv4               |
+  | DDoS Settings**          |                    |
+  +--------------------------+--------------------+
+
+- In the **IPv4** row click the **+** icon, and then click **ICMPv4
+  flood**.
+
+- On the right-side of the page configure using the following
+  information, and then click **Create** at the bottom of the page.
+
+  +-----------------------------------+-----------------+
+  | **Detection Threshold PPS**       | Specify: 1000   |
+  +===================================+=================+
+  | **Detection Threshold Percent**   | Infinite        |
+  +-----------------------------------+-----------------+
+  | **Rate/Leak Limit**               | Specify: 1000   |
+  +-----------------------------------+-----------------+
+
+- On the Jumpbox in the **Attacker A** PuTTY window re-run the
+  following command:
+
+  ``for i in {1..10}; do ./icmpflood.sh; done``
+
+- Examine the **tcpdump** window to see if there are any ICMP packets
+  hitting the back-end server.
+
+- Let the attack run for about 30 seconds before moving on.
+
+- In the Configuration Utility, click **DoS Protection > Quick
+  Configuration** > **ServerNet**, and then in the **IPv4** row click
+  the **+** icon.
+
+  |image28|
+
+- Open the **Security > Event Logs > DoS > Network > Events** page.
+
+- The DoS Source is Volumetric, Aggregated across all SrcIP's,
+  VS-Specific attack, metric:PPS.
+
+- The context column displays **/Common/ServerNet**, identifying this
+  is protected object-level protection.
+
+- The action is **Drop**.
+
+- The difference between packets in per second and dropped packets is
+  roughly 1000.
+
+- On the Jumpbox slowly type **Ctrl + C** several times until back at
+  the **/scripts** prompt.
+
+- In the BIG-IP PuTTY window type **Ctrl + C** to stop the tcpdump.
+
+Task 4 – Configure Protected Object-Level UDP Flood Attack Protection 
+----------------------------------------------------------------------
+
+Configure object-level DoS UDP flood protection, and then issue an UPD
+flood and review the results.
+
+- On the Jumpbox in the **Attacker A** PuTTY window type (or copy and
+  paste) the following command:
+
+  ``./udp\_flood.sh``
+
+- Type “\ **1**\ ” to start the attack.
+
+- Let the attack run for about 15 seconds before moving on.
+
+- In the Configuration Utility, open the **Statistics > Performance >
+  Performance** page.
+
+There is a spike in connections and throughput. The BIG-IP system is
+being hit with the UDP flood attack.
+
+- Open the \ **DoS Protection > Quick Configuration** page and click
+  **Device Configuration**.
+
+- In the **Flood** row click the **+** icon.
+
+- For UDP Flood, review the statistics for Current, 1 min. Average, and
+  1 hr Average.
+
+- On the Jumpbox type **Ctrl + C** twice to stop the attack if it
+  hasn’t already completed.
+
+- In the Configuration Utility, reload the **DoS Device Configuration**
+  page and in the **Flood** row click the **+** icon, and then ensure
+  that the **Current** value for **UDP Flood** is now **0**.
+
+- Open the **DoS Protection > Quick Configuration** page and in the
+  **Protected Objects** section click **ServerNet**.
+
+- In the **DDoS Settings** row click the **UDP** checkbox.
+
+- In the **UDP** row click the **+** icon, and then click **UDP
+  Flood**.
+
+- On the right-side of the page configure using the following
+  information, and then click **Update**.
+
+  +-----------------------------------+----------------+
+  | **Detection Threshold PPS**       | Specify: 100   |
+  +===================================+================+
+  | **Detection Threshold Percent**   | Infinite       |
+  +-----------------------------------+----------------+
+  | **Rate/Leak Limit**               | Specify: 450   |
+  +-----------------------------------+----------------+
+
+- On the Jumpbox in the **Attacker A** PuTTY window re-run the
+  following command:
+
+  ``./udp\_flood.sh``
+
+- Type “\ **1**\ ” to start the attack.
+
+- Let the attack run for about 15 seconds before moving on.
+
+- Open the **Security > Event Logs > DoS > Network > Events** page.
+
+- The virtual server is **/Common/ServerNet**.
+
+- The type is **UDP flood**.
+
+- The action is **Drop**.
+
+- The difference between packets in per second and dropped packets is
+  around 1500.
+
+- On the Jumpbox type **Ctrl + C** twice to stop the attack if it
+  hasn’t already completed.
+
+Task 5 – Configure Protected Object-Based Sweep Protection
+----------------------------------------------------------
+
+Configure object-level DoS sweep flood protection, and then issue an UPD
+flood and review the results.
+
+- In the Configuration Utility, open the **DoS Protection > Quick
+  Configuration** page and in the **Protected Objects** section click
+  **ServerNet**.
+
+- In the **DDoS Settings** row click the **Sweep** checkbox.
+
+- In the **Sweep** row click the **+** icon, and then click **Sweep**.
+
+- On the right-side of the page configure using the following
+  information, and then click **Update**.
+
+  +-------------------------------+-----------------------------------------------+
+  | **Detection Threshold PPS**   | Specify: 1000                                 |
+  +===============================+===============================================+
+  | **Rate/Leak Limit**           | Specify: 1200                                 |
+  +-------------------------------+-----------------------------------------------+
+  | **Packet Types**              | Move **All IPv4** to the **Selected** field   |
+  +-------------------------------+-----------------------------------------------+
+
+- On the Jumpbox in the **Attacker** PuTTY window type (or copy and
+  paste) the following command:
+
+  ``./sweep.sh``
+
+- Type “1” to start the attack.
+
+- Let the attack run for about 15 seconds before moving on.
+
+- In the Configuration Utility, open the **Security** **Event Logs >
+  DoS > Network > Events** page.
+
+- The DoS source is Volumetric, Aggregated across all SrcIP's,
+  VS-Specific attack, metric:PPS.
+
+- The type is **Sweep attack**.
+
+- The action is **Drop**.
+
+- On the Jumpbox type **Ctrl + C** to stop the attack.
+
+
+Task 6 – View the DoS Visibility Page 
+--------------------------------------
+
+Use the new DoS Visibility page to view statistics about the DoS attacks
+you submitted during this exercise.
+
+- Open the **Statistics > DoS Visibility** page.
+
+    .. NOTE:: It may take a couple of minutes for the correct data to display.
+
+- In the **Attack Duration** window there are several attacks.
+
+  |image29|
+
+- Mouse over several of the attacks to get additional details of each
+  attack.
+
+- Scroll down in the left-side of the page to view the **Attacks**
+  section.
+
+- You can see the number of high, moderate, and low attacks in addition
+  to the types of attacks (HTTP, DNS, Network) and the severity levels.
+
+- View the details at the bottom of the **Attacks** section.
+
+  |image30|
+
+This table displays details of each attack that has occurred.
+
+- Sort this table by **Vector**.
+
+  |image31|
+
+- Scroll down in the left-side of the page to view the **Virtual
+  Servers** section.
+
+You can see the details of device-wide attacks (**Device Level**) and
+protected object-level attacks (**/Common/ServerNet**).
+
+- Scroll down in the left-side of the page to view the Countries
+  section.
+
+- View the details at the bottom of the **Countries** section.
+
+This table displays the attack details from each country.
+
+- View the various widgets in the panel on the right-side of the page.
+
+- Click **Network** to filter out only the network-level attacks (all
+  the attacks so far have been network-level).
+
+  |image32|
+
+- If it’s not already expanded, expand the **Virtual Servers** widget,
+  and then select **/Common/ServerNet**.
+
+- This filters the results to only attacks at this protected
+  object-level. Notice the changes to the map on in the **Countries**
+  section.
+
+- Click **/Common/ServerNet** to remove the filter.
+
+- Drag the resize handle on the right-side of the main window as far to
+  the left as possible.
+
+  |image33|
+
+- Expand the **Vectors** widget, and then select **ICMPv4 flood**.
+
+- Expand the **Client IP Addresses** widget.
+
+  Questions:
+
+  How many client IP addresses contributed to this attack?
+  \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+- Expand the **Countries** widget.
+
+- Sort the countries by **Dropped Requests**.
+
+  |image34|
+
+- Select **China**, and then view the changes to both the **Client IP
+  Addresses** widget and the map.
+
+- At the top of the page open the **Analysis** page.
+
+.. NOTE:: The requests are still filtered for the ICMPv4 flood results for China.
+
+- Drag the resize handle on the as far to the right as possible.
+
+- Examine the Avg Throughput (Bits per second) graph.
+
+- Place your mouse over the peak in the graph.
+
+  Questions:
+
+  What is the **Average client in throughput** during the attack?
+  \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+- Feel free to examine more of the **Dashboard** page and the
+  **Analysis** page.
+
+.. |image23| image:: /_static/image25.png
+   :width: 4.77213in
+   :height: 4.50712in
+.. |image24| image:: /_static/image26.png
+   :width: 5.90885in
+   :height: 0.80007in
+.. |image25| image:: /_static/image27.png
+   :width: 2.10000in
+   :height: 1.88007in
+.. |image26| image:: /_static/image28.png
+   :width: 2.77088in
+   :height: 1.80000in
+.. |image27| image:: /_static/image29.png
+   :width: 6.64028in
+   :height: 1.74607in
+.. |image28| image:: /_static/image30.png
+   :width: 6.28333in
+   :height: 0.76561in
+.. |image29| image:: /_static/image31.png
+   :width: 4.39023in
+   :height: 1.56979in
+.. |image30| image:: /_static/image32.png
+   :width: 6.20151in
+   :height: 1.49784in
+.. |image31| image:: /_static/image33.png
+   :width: 3.26695in
+   :height: 0.70006in
+.. |image32| image:: /_static/image34.png
+   :width: 2.28106in
+   :height: 0.68981in
+.. |image33| image:: /_static/image35.png
+   :width: 4.90177in
+   :height: 0.96655in
+.. |image34| image:: /_static/image36.png
+   :width: 3.06463in
+   :height: 0.92886in
+.. |image54| image:: /_static/image54.png
+   :width: 2.10000in
+   :height: 1.88007
+   
 
