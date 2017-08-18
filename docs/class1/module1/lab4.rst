@@ -1,4 +1,4 @@
-Lab 3 - Multi-vector Demo
+Lab 4 - Multi-vector Demo
 =========================
 
 In this simple demo you will launch a small number of network attacks
@@ -29,17 +29,15 @@ Launch the attacks and show the behavior
 
 - Access the Attacker System CLI and run the attack
 
-  ..code-block:: console
+  .. code-block:: console
 
-    cd ~/scripts
+    # cd ~/scripts
     # sudo bash
     # ./multivector.sh
 
-  You will have to click refresh a few times to get the attacks to show.
-
-- Click Refresh on the DoS Overview page. You will see some attacks
-  mitigated by Device Configuration and some mitigated by the more
-  specific settings on the ServerNet Protected Object:
+  - Click **Refresh** on the DoS Overview page. You will see some attacks
+  mitigated by **Device Configuration** and some mitigated by the more
+  specific settings on the **ServerNet Protected Object**.
 
   |image36|
 
@@ -98,4 +96,3 @@ Navigate to **Security->Event Logs->DoS->Network->Events**.
 .. |image39| image:: /_static/image41.png
    :width: 7.28750in
    :height: 3.65347in
-

@@ -1,14 +1,13 @@
-Lab 2 – Configuring Hybrid Defender DDoS protection
+Lab 3 – Configuring Hybrid Defender DDoS protection
 ===================================================
 
 Task 1 – Disable Device-Level DHD DoS Protection
 ------------------------------------------------
 
-From the DHD UI disable device-level DoS flood protection, and then
-issue an ICMPv4 flood and **review** the results.
+In this lab you will disable **device-level** DoS flood protection, and then
+issue an ICMPv4 flood and review the results.
 
-- RDP to the Windows Jumpbox (un: external\_user – pw: f5DEMOs4u) and
-  use **PuTTY** to access the BIG-IP (10.1.1.245) and resize window by
+- **PuTTY** to the BIG-IP CLI (10.1.1.245) and resize window by
   making it wider. Login with root/f5DEMOs4u.
 
 - At the **config** prompt, type (or copy and paste) the following
@@ -17,8 +16,8 @@ issue an ICMPv4 flood and **review** the results.
   ``tcpdump -i 0.0``
 
 - Open a second **PuTTY** window and Load the Attacker Saved Session at
-  **10.1.1.7** and log in as **ubuntu. I**\ t will use **a pre-loaded
-  public key** as the credentials\ **.**
+  **10.1.1.7** and log in as **ubuntu**. I't will use **a pre-loaded
+  public key** as the credentials.
 
   |image23|
 
@@ -35,13 +34,13 @@ behind the BIG-IP DHD.
 
 .. NOTE:: The listener for the ICMP packets is the VLAN group.
 
-- Cancel the ping command, then verify the **tcpdump** stops receiving
+- Cancel the ``ping`` command, then verify the ``tcpdump`` stops receiving
   ICMP packets, and then press **Enter** several times to clear the
   recent log entries.
 
 - In the Configuration Utility, in the **DoS Protection, Quick
-  Configuration, Device Protection** section click Device
-  Configuration.
+  Configuration, Device Protection** section click **Device
+  Configuration**.
 
   |image24|
 
@@ -49,17 +48,17 @@ behind the BIG-IP DHD.
   Source**.
 
 - On the right-side of the page select the drop-down to "Don't Enforce"
-  
+
   |image25|
 
 - In the **Flood** row click the **+** icon, and then click **ICMPv4
   flood**.
 
-If you minimize by clicking the + icon, make seeing the other sections
-easier.
+.. NOTE:: If you minimize by clicking the + icon, it will make seeing the other
+ sections easier.
 
 - On the right-side of the page select the drop-down to "Don't Enforce"
-  
+
   |image54|
 
   - Apply the settings above for **TCP SYN flood** and **UDP Flood**.,
@@ -68,11 +67,11 @@ easier.
 - On the Jumpbox in the **Attacker** PuTTY window type (or copy and
   paste) the following:
 
-  ..Code-block::console
+  .. Code-block:: console
 
-    sudo su
-    cd scripts
-    ls
+    # sudo su
+    # cd scripts
+    # ls
 
 .. NOTE:: Ignore the “unable to resolve host Attacker message”
 
@@ -86,7 +85,7 @@ simulate DoS attacks.
 This script launches 1,000,000 ICMP requests and then repeats for a
 total of ten occurrences.
 
-- View the **tcpdump** window and verify that ICMP attack traffic is
+- View the ``tcpdump`` window and verify that ICMP attack traffic is
   reaching the back-end server.
 
 - Let the attack run for about 15 seconds before moving on.
@@ -111,13 +110,13 @@ The log file is empty as we disabled device-level flood protection on
 BIG-IP DHD.
 
 - On the Jumpbox Attacker shell slowly type **Ctrl + C** several times
-  until back at the **/scripts** prompt.
+  until back at the ``scripts`` prompt.
 
 Task 2 – Configure Device-Level IPv4 Flood DHD DoS Protection
 -------------------------------------------------------------
 
-Configure device-level DoS IPv4 flood protection, and then issue an
-ICMPv4 flood and review the results.
+In this task you will configure **device-level** DoS IPv4 flood protection,
+and then issue an ICMPv4 flood and review the results.
 
 - In the Configuration Utility, open the **DoS Protection > Quick
   Configuration** page and click **Device Configuration**.
@@ -157,15 +156,15 @@ ICMPv4 flood and review the results.
 
 There are now log entries showing dropped packets.
 
-- The DoS Source is Volumetric, Aggregated across all SrcIP's,
-  Device-Wide attack, metric:PPS,
+- The DoS Source is **Volumetric, Aggregated across all SrcIP's,
+  Device-Wide attack, metric:PPS**.
 
 - The type is **ICMPv4 flood**.
 
 - The action is **Drop**.
 
 - On the Jumpbox Attacker shell slowly type **Ctrl + C** several times
-  until back at the **/scripts** prompt.
+  until back at the ``scripts`` prompt.
 
 Reset the Device-Level ICMPv4 Flood Settings
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -188,11 +187,11 @@ Reset the Device-Level ICMPv4 Flood Settings
 Task 3 – Configure Protected Object-Level IPv4 Flood DHD DoS Protection
 -----------------------------------------------------------------------
 
-Configure object-level DoS IPv4 flood protection, and then issue an
-ICMPv4 flood and review the results.
+In this task you will configure **object-level** DoS IPv4 flood protection, and
+ then issue an ICMPv4 flood and review the results.
 
 - On the Protect Objects page, in the Protected Objects section click
-  Create.
+  **Create**.
 
 - Configure a protected object using the following information, and
   then click **Create**.
@@ -232,7 +231,7 @@ ICMPv4 flood and review the results.
 
   ``for i in {1..10}; do ./icmpflood.sh; done``
 
-- Examine the **tcpdump** window to see if there are any ICMP packets
+- Examine the ``tcpdump`` window to see if there are any ICMP packets
   hitting the back-end server.
 
 - Let the attack run for about 30 seconds before moving on.
@@ -245,8 +244,8 @@ ICMPv4 flood and review the results.
 
 - Open the **Security > Event Logs > DoS > Network > Events** page.
 
-- The DoS Source is Volumetric, Aggregated across all SrcIP's,
-  VS-Specific attack, metric:PPS.
+- The DoS Source is **Volumetric, Aggregated across all SrcIP's,
+  VS-Specific attack, metric:PPS**.
 
 - The context column displays **/Common/ServerNet**, identifying this
   is protected object-level protection.
@@ -257,11 +256,11 @@ ICMPv4 flood and review the results.
   roughly 1000.
 
 - On the Jumpbox slowly type **Ctrl + C** several times until back at
-  the **/scripts** prompt.
+  the ``scripts`` prompt.
 
 - In the BIG-IP PuTTY window type **Ctrl + C** to stop the tcpdump.
 
-Task 4 – Configure Protected Object-Level UDP Flood Attack Protection 
+Task 4 – Configure Protected Object-Level UDP Flood Attack Protection
 ----------------------------------------------------------------------
 
 Configure object-level DoS UDP flood protection, and then issue an UPD
@@ -342,8 +341,8 @@ being hit with the UDP flood attack.
 Task 5 – Configure Protected Object-Based Sweep Protection
 ----------------------------------------------------------
 
-Configure object-level DoS sweep flood protection, and then issue an UPD
-flood and review the results.
+In this task you will configure **object-level DoS sweep flood protection**,
+ and then issue an UPD flood and review the results.
 
 - In the Configuration Utility, open the **DoS Protection > Quick
   Configuration** page and in the **Protected Objects** section click
@@ -376,8 +375,8 @@ flood and review the results.
 - In the Configuration Utility, open the **Security** **Event Logs >
   DoS > Network > Events** page.
 
-- The DoS source is Volumetric, Aggregated across all SrcIP's,
-  VS-Specific attack, metric:PPS.
+- The DoS source is **Volumetric, Aggregated across all SrcIP's,
+  VS-Specific attack, metric:PPS**.
 
 - The type is **Sweep attack**.
 
@@ -386,11 +385,11 @@ flood and review the results.
 - On the Jumpbox type **Ctrl + C** to stop the attack.
 
 
-Task 6 – View the DoS Visibility Page 
+Task 6 – View the DoS Visibility Page
 --------------------------------------
 
-Use the new DoS Visibility page to view statistics about the DoS attacks
-you submitted during this exercise.
+You can now use the new DoS Visibility page to view statistics about the
+ DoS attacks you submitted during this exercise.
 
 - Open the **Statistics > DoS Visibility** page.
 
@@ -457,10 +456,7 @@ This table displays the attack details from each country.
 
 - Expand the **Client IP Addresses** widget.
 
-  Questions:
-
-  How many client IP addresses contributed to this attack?
-  \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+  Question:   How many client IP addresses contributed to this attack?
 
 - Expand the **Countries** widget.
 
@@ -481,10 +477,7 @@ This table displays the attack details from each country.
 
 - Place your mouse over the peak in the graph.
 
-  Questions:
-
-  What is the **Average client in throughput** during the attack?
-  \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+  Question: What is the **Average client in throughput** during the attack?
 
 - Feel free to examine more of the **Dashboard** page and the
   **Analysis** page.
@@ -527,6 +520,4 @@ This table displays the attack details from each country.
    :height: 0.92886in
 .. |image54| image:: /_static/image54.png
    :width: 2.10000in
-   :height: 1.88007
-   
-
+   :height: 1.88007in

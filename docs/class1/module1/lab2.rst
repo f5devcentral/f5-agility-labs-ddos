@@ -44,7 +44,7 @@ Task 2 – Run Scripts to start L4 traffic generation – Good Traffic
 -  Putty SSH (use the shortcut) to open a shell to the good client
    system.
 
--  Login as user : ubuntu. The session is preconfigured to authenticate
+-  Login as user : ``ubuntu``. The session is preconfigured to authenticate
    with a certificate.
 
 -  Start the auto-threshold baselining script with:
@@ -64,4 +64,3 @@ Task 2 – Run Scripts to start L4 traffic generation – Good Traffic
 .. |image30| image:: /_static/class2/image32.png
    :width: 5.30972in
    :height: 0.45031in
-
