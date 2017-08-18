@@ -112,26 +112,35 @@ BIG-IP DHD.
 - On the Jumpbox Attacker shell slowly type **Ctrl + C** several times
   until back at the ``scripts`` prompt.
 
-Task 2 – Configure Device-Level IPv4 Flood DHD DoS Protection
+Task 2 – Re-enable Device-Level DHD DoS Protection
 -------------------------------------------------------------
 
-In this task you will configure **device-level** DoS IPv4 flood protection,
+In this task you will re-configure **device-level** DoS protection,
 and then issue an ICMPv4 flood and review the results.
 
-- In the Configuration Utility, open the **DoS Protection > Quick
-  Configuration** page and click **Device Configuration**.
+-  In the Configuration Utility, in the **Device Protection** section
+   click **Device Configuration.**
 
-- In the **Flood** row click the **+** icon, and then click **ICMPv4
-  flood**.
+   |image35|
 
-- On the right-side of the page configure using the following
-  information, and then click **Update**.
+-  In the **Bad Headers** row click the + icon, and then click **Bad
+   Source**.
 
-  +-------------------------------+-----------------+
-  | **Detection Threshold PPS**   | Specify: 1000   |
-  +===============================+=================+
-  | **Rate/Leak Limit**           | Specify: 1000   |
-  +-------------------------------+-----------------+
+-  On the right-side of the page select the drop-down to **"Enforce"**
+
+   |image36|
+
+-  In the **Flood** row click the + icon, and then click **ICMPv4**
+   flood.
+
+-  On the right-side of the page select the drop-down to **"Enforce"**
+
+   |image37|
+
+-  Click **Update**.
+
+.. NOTE:: This returns the configuration back to factory supplied device level
+   enforcement.
 
 - On the Jumpbox in the **Attacker A** PuTTY window re-run the
   following command:
@@ -521,3 +530,12 @@ This table displays the attack details from each country.
 .. |image54| image:: /_static/image54.png
    :width: 2.10000in
    :height: 1.88007in
+.. |image35| image:: /_static/class2/image33.png
+    :width: 5.30972in
+    :height: 0.71895in
+.. |image36| image:: /_static/class2/image37.png
+    :width: 2.05567in
+    :height: 2.02083in
+.. |image37| image:: /_static/class2/image38.png
+    :width: 2.32942in
+    :height: 2.73958in   
