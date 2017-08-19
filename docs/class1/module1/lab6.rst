@@ -1,10 +1,10 @@
-Lab 5 - Auto-threshold demo
+Lab 6 - Auto-threshold demo
 ===========================
 
-This demo will simulate a newly configured Protected Object where the
+This demo will simulate a newly configured **Protected Object** where the
 security administrator is unsure what values to assign to a few common
-vectors. Note that auto-thresholding is useful at both the Device and
-Protected Object levels.
+vectors. Note that auto-thresholding is useful at both the **Device and
+Protected Object** levels.
 
 In the interest of having a repeatable demo in an environment where many
 different types of traffic are executed, we are focusing on the
@@ -12,11 +12,11 @@ per-VS/per-PO auto-thresholding
 
 .. NOTE:: This demo may place significant stress on the demo
    environment. Due to the virtual environment limitations, this may make
-   the DHD UI less responsive. This is unavailable since for
-   auto-thresholding to block, the attack must be damaging enough to cause
-   stress, which will push the CPU on the VE very high. Remind the audience
-   that this is a virtual environment under high stress and that the Hybrid
-   Defender appliances mitigate these attacks in dedicated hardware
+   the DHD UI less responsive. This is unavoidable since for auto-thresholding
+   to block the attack, the attck must be damaging enough to cause stress,
+   which will push the CPU on the VE very high. Rememberthis is a virtual
+   environment under high stress and that the Hybrid Defender appliances
+   mitigate these attacks in dedicated hardware.
 
 - Open the following tabs in the Hybrid Defender WebUI:
 
@@ -38,7 +38,7 @@ per-VS/per-PO auto-thresholding
      # sudo bash
      # ./baseline\_l4.sh
 
-- 3. In the Hybrid Defender UI, in Quick Configuration, select the
+- 3. In the Hybrid Defender UI, in **Quick Configuration**, select the
   Server5 Protected Object and verify that the IP and TCP vectors are
   all at default thresholds with auto-threshold disabled
 
@@ -53,8 +53,8 @@ per-VS/per-PO auto-thresholding
 
 - In the Hybrid Defender WebUI, in the Server5 Protected Object
   configuration, enable auto- thresholding for the following vectors:
-  ICMPv4 Flood, TCP SYN Flood, TCP Push Flood, TCP RST Flood, TCP SYN
-  ACK Flood by selecting each vector and clicking the Auto- Threshold
+  **ICMPv4 Flood, TCP SYN Flood, TCP Push Flood, TCP RST Flood, TCP SYN
+  ACK** Flood by selecting each vector and clicking the Auto- Threshold
   Configuration radio button. When all vectors are configured, click
   **Update** at the bottom of the screen
 
@@ -102,7 +102,7 @@ finished.
 - Terminate the attack in the Attacker CLI with ctrl-C
 
 - After the attack has ended, in the Hybrid Defender WebUI, show the
-  **DoS Visibility** page. Under Vectors, select TCP SYN Flood.
+  **DoS Visibility** page. Under **Vectors**, select **TCP SYN Flood**.
   Identify the Critical attack and show the details
 
   |image49|

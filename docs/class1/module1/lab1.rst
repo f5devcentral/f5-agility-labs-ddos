@@ -9,7 +9,7 @@ Task 1 – Initial Set-up
 - Open a web browser and access supplied link.(Given at Location)
 
 - Login to the BIG-IP Configuration Utility via your preferred browser?
- 
+
  .. NOTE:: When you first power up a F5 DHD device you would go through the
   steps of Licensing and Provisioning.  We have assigned the management
   IP, hostname, NTP and DNS servers.  You will be re-activating the
@@ -32,7 +32,7 @@ Task 1 – Initial Set-up
   “\ **Change Device Name**\ …”. Update the device name to match
   the hostname you have chosen. Retain Current Authority
 
-- Click Update to save changes
+- Click **Update** to save changes
 
 - Review and Verify the following: \ **System -> Configuration ->
   Device -> NTP** page add **pool.ntp.org** to the Time Server
@@ -40,7 +40,7 @@ Task 1 – Initial Set-up
 
 - Review and Verify the following: **System -> Configuration -> Device
   ->DNS** page add 8.8.8.8 to the DNS Lookup Server List, and then
-  click Update.
+  click **Update**.
 
 - Open the **System > License** page and **re-activate** the BIG-IP
   system using the new development license key using Manual mode.
@@ -50,7 +50,7 @@ Task 1 – Initial Set-up
 
 - Click **Next** and explore **Resource Provisioning** page
 
-  ..NOTE:: The above task ensures that you are using a purpose built
+.. NOTE:: The above task ensures that you are using a purpose built
   DDoS Hybrid Defender.  If you are familiar with other
   F5 Modules/Technology that you have used in the past, you will
   notice that we have none of those provisioned.
@@ -58,7 +58,7 @@ Task 1 – Initial Set-up
 - When done click **Submit**.
 
 - Access the Jumbox via RDP. PuTTY into the Hybrid Defender. Login with
-  root and restart services
+  ``root`` and restart services
 
   ``bigstart restart``
 
@@ -77,7 +77,7 @@ Task 2 – DDoS Hybrid Defender iApp and Base Configuration
 
 - Select Install RPM method of Onboard
 
-- Click Install
+- Click **Install**
 
   |image7|
 
@@ -92,8 +92,8 @@ Task 2 – DDoS Hybrid Defender iApp and Base Configuration
   |image9|
 
 - In the BIG-IP Configuration Utility, click **iApps**, **Templates**
-  and **Import**, importing the two templates supplied on your
-  thumbdrive.
+  and **Import**, importing the two templates located on the jumpbox documents
+  folder.
 
   |image10|
 
@@ -118,7 +118,7 @@ Task 2 – DDoS Hybrid Defender iApp and Base Configuration
 
 - Use the Silverline username and password supplied
 
-Case Sensitive – make sure email address is all lowercase
+.. Note:: This is case sensitive – make sure email address is all lowercase
 
 |image13|
 
@@ -183,7 +183,7 @@ Case Sensitive – make sure email address is all lowercase
 
 - On the Jumpbox desktop, PuTTY to the BIG-IP
 
-- Login as root
+- Login as ``root``
 
 - Verify DNS by typing the following
 
@@ -253,7 +253,7 @@ Task 3 – Configure Silverline Signaling
 Task 4 – Configure DHD Device Bandwidth Thresholds
 --------------------------------------------------
 
-- In the **DoS Protection > Quick Configuration** page, open the
+- In the **DoS Protection > Quick Configuration** \page, open the
    **Protected Objects** page.
 
 - In the **Network Protection** section click **Create**.

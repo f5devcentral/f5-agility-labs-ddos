@@ -1,4 +1,4 @@
-Lab 4 - Bad Actor Detection Demo
+Lab 5 - Bad Actor Detection Demo
 ================================
 
 In this demo you will run an attack from specific IP addresses. The
