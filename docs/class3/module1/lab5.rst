@@ -7,8 +7,8 @@ the attack on a per-IP basis with more aggressive thresholds and then,
 based on this detection, automatically blacklist the offending IP
 address adding them to the (hardware-accelerated) dynamic blacklist
 
-Task 1 - Open the following tabs in the DHD UI:
------------------------------------------------
+Task 1 - Open the following tabs in the DHD UI
+----------------------------------------------
 
 -  **DoS Protection->Quick Configuration->ServerNet**
 
@@ -19,8 +19,8 @@ Task 1 - Open the following tabs in the DHD UI:
 
 -  **Security->Event Logs->Network->IP Intelligence**
 
-Task 2 – Configure the following UDP Flood vectors for ServerNet:
------------------------------------------------------------------
+Task 2 – Configure the following UDP Flood vectors for ServerNet
+----------------------------------------------------------------
 
 - **DoS Protection->Quick Configuration->ServerNet**
 

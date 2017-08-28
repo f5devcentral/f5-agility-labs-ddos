@@ -7,7 +7,7 @@ Hybrid Defender. The point of this demo is to provide context for a UI
 walkthrough with some live data.
 
 Task 1 - Access DoS Quick Configuration and display the **ServerNet** protected object
-----------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------
 
 This protected object is defending all ports/protocols for 10.1.20.0/24,
 which is the network behind the Hybrid Defender. Attacks will be
@@ -33,13 +33,13 @@ You will now launch the attacks and show the behavior
 
   .. code-block:: console
 
-    # cd ~/scripts
-    # sudo bash
-    # ./multivector.sh
+     # cd ~/scripts
+     # sudo bash
+     # ./multivector.sh
 
   - Click **Refresh** on the DoS Overview page. You will see some attacks
-  mitigated by **Device Configuration** and some mitigated by the more
-  specific settings on the **ServerNet Protected Object**.
+    mitigated by **Device Configuration** and some mitigated by the more
+    specific settings on the **ServerNet Protected Object**.
 
   |image36|
 

@@ -9,10 +9,10 @@ Task 1 – Initial Set-up
 - Login to the BIG-IP Configuration Utility via your preferred browser. You
   will land on the welcome page.
 
- .. NOTE:: When you first power up a F5 DHD device you would go through the
-  steps of Licensing and Provisioning.  We have assigned the management
-  IP, hostname, NTP and DNS servers.  We have already licenesed the device
-  for you.
+  .. NOTE:: When you first power up a F5 DHD device you would go through the
+     steps of Licensing and Provisioning.  We have assigned the management
+     IP, hostname, NTP and DNS servers.  We have already licenesed the device
+     for you.
 
 - Review and Verify the following: \ **System -> Configuration ->
   Device -> NTP** page. This should be already populated with **pool.ntp.org**
@@ -23,9 +23,9 @@ Task 1 – Initial Set-up
 - Click **System** and explore **Resource Provisioning** page
 
 .. NOTE:: The above task ensures that you are using a purpose built
-  DDoS Hybrid Defender.  If you are familiar with other
-  F5 Modules/Technology that you have used in the past, you will
-  notice that we have none of those provisioned.
+   DDoS Hybrid Defender.  If you are familiar with other
+   F5 Modules/Technology that you have used in the past, you will
+   notice that we have none of those provisioned.
 
 Task 2 – DDoS Hybrid Defender iApp and Base Configuration
 ---------------------------------------------------------
@@ -119,7 +119,7 @@ Task 3 – Explore DHD Device Bandwidth Thresholds
 --------------------------------------------------
 
 - In the **DoS Protection > Quick Configuration** \page, open the
-   **Protected Objects** page.
+  **Protected Objects** page.
 
 - In the **Network Protection** section click **Create**.
 

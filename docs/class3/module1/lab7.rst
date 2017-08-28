@@ -6,7 +6,7 @@ query, reverse flood and amplification attacks are some such DNS
 attacks.
 
 DNS Query Flood
-~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~
 
 This type of DoS of service attack has a couple possible resource
 impacts.
@@ -20,7 +20,7 @@ doesn't really matter if the clients are spoofed or not, it only matters
 that the DNS server just can't keep up.
 
 Mitigation Options
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~
 
 DNS DoS mitigation generally requires an awareness of what you’re trying
 to protect. This allows you to apply the appropriate mitigations and
@@ -299,7 +299,7 @@ Task 2 – Use a Protected Object to Mitigate a DNS Reverse Query Flood
    |image71|
 
 -  In the **attacker** ssh window stop the attack by hitting
-   “\ **CTRL+C**\ ” many times
+   **CTRL+C** many times
 
 .. |image59| image:: /_static/class2/image60.png
    :width: 5.05952in
