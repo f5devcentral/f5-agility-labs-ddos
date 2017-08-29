@@ -9,7 +9,7 @@ Task 1 – Initial Set-up
 - Login to the BIG-IP Configuration Utility via your preferred browser. You
   will land on the welcome page.
 
- .. NOTE:: When you first power up a F5 DHD device you would go through the
+.. NOTE:: When you first power up a F5 DHD device you would go through the
   steps of Licensing and Provisioning.  We have assigned the management
   IP, hostname, NTP and DNS servers.  We have already licenesed the device
   for you.
@@ -20,7 +20,7 @@ Task 1 – Initial Set-up
 - Review and Verify the following: **System -> Configuration -> Device
   ->DNS** page.  This should be already populated with 8.8.8.8
 
-- Click **System** and explore **Resource Provisioning** page
+- Click **System** and explore **Resource Provisioning** page.
 
 .. NOTE:: The above task ensures that you are using a purpose built
   DDoS Hybrid Defender.  If you are familiar with other
@@ -33,13 +33,13 @@ Task 2 – DDoS Hybrid Defender iApp and Base Configuration
 - In the BIG-IP Configuration Utility, open **DoS Protection > Quick
   Configuration** page.
 
-- Select Install RPM method of Onboard
+- Select Install RPM method of Onboard.
 
-- Click **Install**
+- Click **Install**.
 
   |image7|
 
-- Open the About page
+- Open the About page.
 
   |image8|
 
@@ -85,7 +85,7 @@ Task 2 – DDoS Hybrid Defender iApp and Base Configuration
   **defaultVLAN**.
 
 - A Bridged (VLAN Group) L2 configuration consistent with recommended
-  practices for most deployments was automatically created
+  practices for most deployments was automatically created.
 
 - Open the **Network > DNS Resolvers > DNS Resolver** list page and
   click **Create**.
@@ -96,13 +96,13 @@ Task 2 – DDoS Hybrid Defender iApp and Base Configuration
   detection of benign search engines such as Google and Bing.
 
 - On the Jumpbox desktop, SSH to the BIG-IP, it will log you in automatically
-  as user ``root``
+  as user ``root``, using the shortcut.
 
-- Verify DNS by typing the following
+- Verify DNS by typing the following:
 
   ``nslookup api.f5silverline.com``
 
-- Type the following to verify the correct date setting:
+- Verify the Date by typing the following:
 
   ``date``
 

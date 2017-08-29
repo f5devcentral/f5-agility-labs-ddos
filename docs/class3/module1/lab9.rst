@@ -63,5 +63,3 @@ Task 2 – Configure Protection/Mitigation, launch attack and view reports
 
 -  In the Hybrid Defender WebUI, access the **Auction** Protected
    Object.
-
- 

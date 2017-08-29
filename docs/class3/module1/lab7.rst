@@ -12,7 +12,7 @@ This type of DoS of service attack has a couple possible resource
 impacts.
 
 -  Overwhelm the DNS server's ability to respond by sending too many
-   requests
+   requests.
 
 This can be done just by asking for more requests than the server can
 reply with and prevent the server from servicing legitimate requests. It
@@ -35,7 +35,7 @@ Task 1 – Use a Protected Object to Mitigate a DNS Query Flood
 -------------------------------------------------------------
 
 -  In the BIG-IP Configuration Utility, open the **DoS Protection >
-   Quick Configuration** page and in the
+   Quick Configuration** page.
 
 -  In the **Protected Objects** section click **Create**.
 
@@ -102,7 +102,9 @@ Task 3 – Initiate a DNS Attack that Exceeds the Rate Limit
 
 -  Wait for the attack to run for about 30 seconds before moving on.
 
--  In the Configuration Utility, review the **DoS Overview** page
+-  In the Configuration Utility, review the **DoS Overview** page.
+
+- Change the selection to **Virtual Server** and **DNSServer**.
 
    |image62|
 

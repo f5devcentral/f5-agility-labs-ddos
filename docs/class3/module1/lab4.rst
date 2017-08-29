@@ -6,7 +6,7 @@ and show the configuration, logging and reporting capabilities of the
 Hybrid Defender. The point of this demo is to provide context for a UI
 walkthrough with some live data.
 
-Task 1 - Access DoS Quick Configuration and display the **ServerNet** protected object
+Task 1 - Access DoS Quick Configuration and display the ServerNet protected object
 ----------------------------------------------------------------------------------
 
 This protected object is defending all ports/protocols for 10.1.20.0/24,
@@ -29,7 +29,7 @@ You will now launch the attacks and show the behavior
 
 - **Statistics->DoS Visibility**
 
-- Access the Attacker System CLI and run the attack
+- Access the Attacker System CLI and run the commands/attack
 
   .. code-block:: console
 
@@ -63,9 +63,9 @@ Navigate to **Security->Event Logs->DoS->Network->Events**.
 .. NOTE:: DoS Visibility is a reporting tool, not a real-time
    monitoring tool. Events are displayed, much like other AVR-based
    reporting, in 5 minute windows. Do not expect events to be shown here
-   immediately after running an attack. Be aware of this timing when doing
-   a demo. Quicker/real-time monitoring of on-going DoS attacks is best
-   accomplished in the DoS Event Logs and DoS Overview areas of the WebUI
+   immediately after running an attack. Quicker/real-time monitoring of on-going
+   DoS attacks is best accomplished in the DoS Event Logs and DoS Overview areas
+   of the WebUI.
 
 - You should see the attacks in the timeline and a variety of details in
   the windows. Use the slider to shorten the timeframe if needed, and
@@ -73,10 +73,11 @@ Navigate to **Security->Event Logs->DoS->Network->Events**.
 
   |image38|
 
-  .. NOTE:: that you can select events from the timeline and see details
-     about the attacks
+. NOTE:: You can select events from the timeline and see details about the attacks
 
   |image39|
+
+  - Type **Ctrl + C** to stop the attack.
 
 .. |image35| image:: /_static/image37.png
    :width: 6.41389in
