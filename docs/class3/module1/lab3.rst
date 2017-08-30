@@ -4,7 +4,7 @@ Lab 3 – Configuring Hybrid Defender DDoS protection
 Task 1 – Disable **Device-Level** DHD DoS Protection
 ----------------------------------------------------
 
-In this lab you will disable **device-level** DoS flood protection, and then
+In this lab you will disable **Device-level** DoS flood protection, and then
 issue an ICMPv4 flood and review the results.
 
 - **PuTTY** to the BIG-IP CLI (10.1.1.245) and resize window by
@@ -18,8 +18,7 @@ issue an ICMPv4 flood and review the results.
 - Open a **PuTTY** window to the Attacker host. You will be logged in as **ubuntu**.
   I't will use **a pre-loaded public key** as the credentials.
 
-  - At the **config** prompt, type (or copy and paste) the following
-  command:
+  - At the **config** prompt, type (or copy and paste) the following command:
 
   ``ping 10.1.20.12``
 
@@ -69,8 +68,6 @@ behind the BIG-IP DHD.
     # sudo su
     # cd scripts
     # ls
-
-  .. NOTE:: Ignore the “unable to resolve host Attacker message”
 
 These are the different scripts we’ll be using during the exercises to
 simulate DoS attacks.
@@ -125,6 +122,8 @@ and then issue an ICMPv4 flood and review the results.
 
 -  On the right-side of the page select the drop-down to **"Enforce"**
 
+.. NOTE:: Bad Source is enabled to be able to add the IP addresses to the blacklist.
+
    |image36|
 
 -  In the **Flood** row click the + icon, and then click **ICMPv4**
@@ -163,11 +162,13 @@ and then issue an ICMPv4 flood and review the results.
 
 There are now log entries showing the attack and the DHD's actions.
 
-- The DoS Source is **Volumetric, BBDoS Signature-Based, Device-Wide attack, metric:PPS**.
+- The DoS Source is **Volumetric, Aggregated across all SrcIP's, Device-Wide attack, metric:PPS**.
 
-- The type is **Behavioral** signature was created.
+- The virtual server column is empty, as we are using device-level protection.
 
-- The action is **allow**. Because the attack was not harming the DHD.
+- The type is **ICMPv4 Flood** .
+
+- The action is **Drop**.
 
 - On the Jumpbox Attacker shell slowly type **Ctrl + C** several times
   until back at the ``scripts`` prompt.
@@ -255,7 +256,7 @@ You can now use the new DoS Visibility page to view statistics about the
 
   .. NOTE:: It may take a couple of minutes for the correct data to display.
 
-- In the **Attack Duration** window there are several attacks.
+- In the **Attack Duration** window view the attack.
 
   |image29|
 
@@ -354,7 +355,7 @@ This table displays the attack details from each country.
 .. |image26| image:: /_static/image28.png
    :width: 2.77088in
    :height: 1.80000in
-.. |image27| image:: /_static/image55.png
+.. |image27| image:: /_static/image56.png
    :width: 6.64028in
    :height: 3.06042in
 .. |image28| image:: /_static/image30.png

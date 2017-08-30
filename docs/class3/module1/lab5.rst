@@ -5,7 +5,7 @@ In this demo you will run an attack from specific IP addresses. The
 Hybrid Defender will be configured to perform bad actor detection, limit
 the attack on a per-IP basis with more aggressive thresholds and then,
 based on this detection, automatically blacklist the offending IP
-address adding them to the (hardware-accelerated) dynamic blacklist
+address adding them to the (hardware-accelerated) dynamic blacklist.
 
 Task 1 - Open the following tabs in the DHD UI
 ----------------------------------------------
@@ -50,7 +50,7 @@ Task 2 – Configure the following UDP Flood vectors for ServerNet
 
 .. NOTE:: This attack is relatively short-lived. You can launch it
    again if the attack ends and you are not finished showing the various
-   reports. Simply type ‘1’ again, to re-run the attack
+   reports. Simply type ‘1’ again, to re-run the attack.
 
 - In the Hybrid Defender UI, show the **Security > DoS >DoS Overview**
   page. Note the blocks by Bad Actor.

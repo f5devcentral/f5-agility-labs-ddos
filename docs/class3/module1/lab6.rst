@@ -4,7 +4,7 @@ Lab 6 – Using Auto Thresholding
 This exercise will simulate a newly configured Protected Object where
 the security administrator is unsure what values to assign to a few
 common vectors. Note that auto-thresholding is useful at both the Device
-and Protected Object levels
+and Protected Object levels.
 
 .. NOTE:: This demo may place significant stress on the demo environment.
    This may make the DHD UI less responsive. This is unavoidable since for
@@ -12,7 +12,7 @@ and Protected Object levels
    stress, which will push the CPU on the Virtual Environment very high.
    Remember that this is a virtual environment with minimal resources for
    lab under high stress and that the Hybrid Defender appliances mitigate
-   these attacks in dedicated hardware.**
+   these attacks in dedicated hardware.
 
 Task 1 – Configure Auto Thresholding
 ------------------------------------
@@ -64,7 +64,7 @@ Configuration radio button**. When all vectors are configured, click
    |image52|
 
 The system is updating the detection thresholds. With auto-thresholding,
-the system adjust the detection thresholds based on observed traffic
+the system adjusts the detection thresholds based on observed traffic
 patterns. However, mitigation rate limits are always dynamic based on
 detected system or protected object stress. If anomalous levels of
 traffic are running, but there is no stress, the Hybrid Defender will
@@ -103,8 +103,8 @@ Task 2 – Create Stress to trigger Auto Thresholding and view Reports
    |image55|
 
 -  Select the filter type to **Virtual Server (DoS protected)** and
-   **Server5** and view how various Thresholds are dynamically adjusted
-   based on the stress
+   **Server5** and view how various thresholds are dynamically adjusted
+   based on the stress.
 
    |image56|
 

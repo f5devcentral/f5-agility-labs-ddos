@@ -55,9 +55,6 @@ Task 2 – Run Scripts to start L4 traffic generation – Good Traffic
       # cd ~/scripts
       # ./baseline_l4.sh
 
-.. NOTE:: Ignore the ``sudo: unable to resolve host xjumpbox`` when you
-   issue the ``sudo bash`` command throughout the labs.
-
 .. |image29| image:: /_static/class2/image31.png
    :width: 5.15178in
    :height: 4.97569in
