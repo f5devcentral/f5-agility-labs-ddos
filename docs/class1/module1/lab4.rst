@@ -36,8 +36,8 @@ Launch the attacks and show the behavior
     # ./multivector.sh
 
   - Click **Refresh** on the DoS Overview page. You will see some attacks
-  mitigated by **Device Configuration** and some mitigated by the more
-  specific settings on the **ServerNet Protected Object**.
+    mitigated by **Device Configuration** and some mitigated by the more
+    specific settings on the **ServerNet Protected Object**.
 
   |image36|
 

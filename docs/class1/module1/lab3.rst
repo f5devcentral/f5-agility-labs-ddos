@@ -62,7 +62,7 @@ behind the BIG-IP DHD.
   |image54|
 
   - Apply the settings above for **TCP SYN flood** and **UDP Flood**.,
-  and then click **Update**.
+    and then click **Update**.
 
 - On the Jumpbox in the **Attacker** PuTTY window type (or copy and
   paste) the following:

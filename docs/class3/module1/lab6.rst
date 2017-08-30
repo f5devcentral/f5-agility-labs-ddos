@@ -71,8 +71,8 @@ traffic are running, but there is no stress, the Hybrid Defender will
 generate alerts but will not block traffic. Under stress, the rate
 limits are automatically created and adjusted dynamically.
 
-Task 2 – Create Stress to trigger Auto Thresholding and view Reports.
----------------------------------------------------------------------
+Task 2 – Create Stress to trigger Auto Thresholding and view Reports
+--------------------------------------------------------------------
 
 -  Let’s create some stress with a Flood attack. In the Attacker CLI
    start the auto-threshold flood:

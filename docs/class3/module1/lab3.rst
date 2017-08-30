@@ -2,7 +2,7 @@ Lab 3 – Configuring Hybrid Defender DDoS protection
 ===================================================
 
 Task 1 – Disable **Device-Level** DHD DoS Protection
-------------------------------------------------
+----------------------------------------------------
 
 In this lab you will disable **Device-level** DoS flood protection, and then
 issue an ICMPv4 flood and review the results.
@@ -50,25 +50,24 @@ behind the BIG-IP DHD.
 - In the **Flood** row click the **+** icon, and then click **ICMPv4
   flood**.
 
-.. NOTE:: If you minimize by clicking the + icon, it will make seeing the other
- sections easier.
+  .. NOTE:: If you minimize by clicking the + icon, it will make seeing the other
+     sections easier.
 
 - On the right-side of the page select the drop-down to "Don't Enforce"
 
   |image54|
 
   - Apply the settings above for **TCP SYN flood** and **UDP Flood**.,
-  and then click **Update**.
+    and then click **Update**.
 
 - On the Jumpbox in the **Attacker** PuTTY window type (or copy and
   paste) the following:
 
-  .. Code-block:: console
+  .. code-block:: console
 
     # sudo su
     # cd scripts
     # ls
-
 
 These are the different scripts we’ll be using during the exercises to
 simulate DoS attacks.
@@ -108,7 +107,7 @@ BIG-IP DHD.
   until back at the ``scripts`` prompt.
 
 Task 2 – Re-enable **Device-Level** DHD DoS Protection
--------------------------------------------------------------
+------------------------------------------------------
 
 In this task you will re-configure **device-level** DoS protection,
 and then issue an ICMPv4 flood and review the results.
@@ -136,8 +135,8 @@ and then issue an ICMPv4 flood and review the results.
 
 -  Click **Update**.
 
-.. NOTE:: This returns the configuration back to factory supplied device level
-   enforcement.
+   .. NOTE:: This returns the configuration back to factory supplied device level
+      enforcement.
 
 - On the Jumpbox in the **Attacker A** PuTTY window re-run the
   following command:
@@ -156,7 +155,8 @@ and then issue an ICMPv4 flood and review the results.
 - In the Configuration Utility, open the **Security > Event Logs > DoS
   > Network > Events** page.
 
-.. NOTE:: You may need to refresh this page several times before the log files display.
+  .. NOTE:: You may need to refresh this page several times before the log
+     files display.
 
 - Sort the event by **Time** in descending order.
 
@@ -174,7 +174,7 @@ There are now log entries showing the attack and the DHD's actions.
   until back at the ``scripts`` prompt.
 
 Task 3 – Configure Protected **Object-Level** IPv4 Flood DHD DoS Protection
------------------------------------------------------------------------
+---------------------------------------------------------------------------
 
 In this task you will configure **object-level** DoS IPv4 flood protection, and
  then issue an ICMPv4 flood and review the results.
@@ -247,14 +247,14 @@ In this task you will configure **object-level** DoS IPv4 flood protection, and
 - In the BIG-IP PuTTY window type **Ctrl + C** to stop the tcpdump.
 
 Task 4 – View the DoS Visibility Page
---------------------------------------
+-------------------------------------
 
 You can now use the new DoS Visibility page to view statistics about the
  DoS attacks you submitted during this exercise.
 
 - Open the **Statistics > DoS Visibility** page.
 
-    .. NOTE:: It may take a couple of minutes for the correct data to display.
+  .. NOTE:: It may take a couple of minutes for the correct data to display.
 
 - In the **Attack Duration** window view the attack.
 
