@@ -22,10 +22,12 @@ Task 1 – Initial Set-up
 
 - Click **System** and explore **Resource Provisioning** page.
 
+  |image23|
+
 .. NOTE:: The above task ensures that you are using a purpose built
    DDoS Hybrid Defender.  If you are familiar with other
    F5 Modules/Technology that you have used in the past, you will
-   notice that we have none of those provisioned.
+   notice that we have none of those provisioned.  We have a new section DDOS Protection only.
 
 Task 2 – DDoS Hybrid Defender iApp and Base Configuration
 ---------------------------------------------------------
@@ -84,8 +86,8 @@ Task 2 – DDoS Hybrid Defender iApp and Base Configuration
 - Open the **Network > VLANs > VLAN Groups** page and click
   **defaultVLAN**.
 
-- A Bridged (VLAN Group) L2 configuration consistent with recommended
-  practices for most deployments was automatically created.
+.. NOTE:: A Bridged (VLAN Group) L2 configuration consistent with recommended
+  practices for most deployments was automatically created. Also called "Bump in the Wire".  Can support Routed mode, SPAN and Netflow.
 
 - Open the **Network > DNS Resolvers > DNS Resolver** list page and
   click **Create**.
@@ -184,3 +186,6 @@ Task 3 – Explore DHD Device Bandwidth Thresholds
 .. |image22| image:: /_static/image24.png
    :width: 6.64028in
    :height: 3.17847in
+.. |image23| image:: /_static/image62.png
+      :width: 7.29722in
+      :height: 1.87424in

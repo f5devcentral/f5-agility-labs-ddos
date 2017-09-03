@@ -58,6 +58,8 @@ Task 1 – Create Protected Object and Launch Attack
 
   |image91|
 
+
+
 -  From the Attacker CLI issue the following command:
 
    .. code-block:: console

@@ -44,6 +44,8 @@ Task 2 – Run Scripts to start L4 traffic generation – Good Traffic
 -  Putty SSH (use the shortcut) to open a shell to the good client
    system.
 
+-  Accept the SSH Warning.
+
 -  You will be logged in as user : ``ubuntu``. The session is preconfigured to
    authenticate with a certificate.
 
