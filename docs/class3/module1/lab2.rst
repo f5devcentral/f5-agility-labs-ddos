@@ -34,7 +34,7 @@ Task 1 – Create Protected Objects that the baseline traffic will be targeting
 
    |image29|
 
--  This protected object will be used for Auto-Threshold.
+-  This protected object will be used for the Auto-Thresholding lab.
 
    |image30|
 

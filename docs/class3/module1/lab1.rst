@@ -9,7 +9,7 @@ Task 1 – Initial Set-up
 - Login to the BIG-IP Configuration Utility via your preferred browser. You
   will land on the welcome page.
 
-  .. NOTE:: When you first power up a F5 DHD device you would go through the
+.. NOTE:: When you first power up a F5 DHD device you would go through the
      steps of Licensing and Provisioning.  We have assigned the management
      IP, hostname, NTP and DNS servers.  We have already licenesed the device
      for you.
@@ -126,6 +126,8 @@ Task 3 – Explore DHD Device Bandwidth Thresholds
 - This page is where you would supply values to protect your bandwidth and
   integrate with Silverline or use BGP to change your routing to go through a
   scrubbing center.
+
+- CLick **Cancel** when done exploring the available settings.
 
   |image22|
 

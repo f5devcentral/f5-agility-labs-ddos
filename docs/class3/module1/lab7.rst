@@ -185,7 +185,7 @@ sessions to the **attacker**.
       yorktown.floodzone.local. 10, MX wasp.floodzone.local. 30 **(628)**
 
 -  In the **second ssh** window on the attacker issue a dig against the
-   loop back with “ANY” for a larger response.
+   loop back with a query to RIPE.NET and with DNSSEC for a larger response.
 
    .. code-block:: console
 

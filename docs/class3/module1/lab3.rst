@@ -18,7 +18,7 @@ issue an ICMPv4 flood and review the results.
 - Open a **PuTTY** window to the Attacker host. You will be logged in as **ubuntu**.
   I't will use **a pre-loaded public key** as the credentials.
 
-  - At the **config** prompt, type (or copy and paste) the following command:
+- At the **config** prompt, type (or copy and paste) the following command:
 
   ``ping 10.1.20.12``
 
@@ -57,7 +57,7 @@ behind the BIG-IP DHD.
 
   |image54|
 
-  - Apply the settings above for **TCP SYN flood** and **UDP Flood**.,
+- Apply the settings above for **TCP SYN flood** and **UDP Flood**.,
     and then click **Update**.
 
 - On the Jumpbox in the **Attacker** PuTTY window type (or copy and
@@ -122,9 +122,9 @@ and then issue an ICMPv4 flood and review the results.
 
 -  On the right-side of the page select the drop-down to **"Enforce"**
 
-.. NOTE:: Bad Source is enabled to be able to add the IP addresses to the blacklist.
-
    |image36|
+
+.. NOTE:: Bad Source is enabled to be able to add the IP addresses to the blacklist.
 
 -  In the **Flood** row click the + icon, and then click **ICMPv4**
    flood.
@@ -135,7 +135,7 @@ and then issue an ICMPv4 flood and review the results.
 
 -  Click **Update**.
 
-   .. NOTE:: This returns the configuration back to factory supplied device level
+.. NOTE:: This returns the configuration back to factory supplied device level
       enforcement.
 
 - On the Jumpbox in the **Attacker A** PuTTY window re-run the
@@ -155,7 +155,7 @@ and then issue an ICMPv4 flood and review the results.
 - In the Configuration Utility, open the **Security > Event Logs > DoS
   > Network > Events** page.
 
-  .. NOTE:: You may need to refresh this page several times before the log
+.. NOTE:: You may need to refresh this page several times before the log
      files display.
 
 - Sort the event by **Time** in descending order.
@@ -188,7 +188,7 @@ In this task you will configure **object-level** DoS IPv4 flood protection, and
   +--------------------------+--------------------+
   | **Name**                 | ServerNet          |
   +==========================+====================+
-  | **IP Address**           | 10.1.20.0/22       |
+  | **IP Address**           | 10.1.20.0/24       |
   +--------------------------+--------------------+
   | **Port**                 | \*                 |
   +--------------------------+--------------------+
@@ -254,7 +254,7 @@ You can now use the new DoS Visibility page to view statistics about the
 
 - Open the **Statistics > DoS Visibility** page.
 
-  .. NOTE:: It may take a couple of minutes for the correct data to display.
+.. NOTE:: It may take a couple of minutes for the correct data to display.
 
 - In the **Attack Duration** window view the attack.
 
@@ -356,8 +356,8 @@ This table displays the attack details from each country.
    :width: 2.77088in
    :height: 1.80000in
 .. |image27| image:: /_static/image56.png
-   :width: 6.64028in
-   :height: 3.06042in
+   :width: 7.35069in
+   :height: 2.26358in
 .. |image28| image:: /_static/image30.png
    :width: 6.28333in
    :height: 0.76561in
