@@ -14,6 +14,8 @@ which is the network behind the Hybrid Defender. Attacks will be
 launched at 10.1.20.12, which is an interface on the LAMP server. Verify
 that the following vectors are configured:
 
+-  Add the TCP vectors for DDoS.
+
 |image35|
 
 - Click **Update** when finished.

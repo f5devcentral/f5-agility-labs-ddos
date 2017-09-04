@@ -34,7 +34,7 @@ Task 1 – Create Protected Objects that the baseline traffic will be targeting
 
    |image29|
 
--  This protected object will be used for Auto-Threshold.
+-  This protected object will be used for the Auto-Thresholding lab.
 
    |image30|
 
@@ -43,6 +43,8 @@ Task 2 – Run Scripts to start L4 traffic generation – Good Traffic
 
 -  Putty SSH (use the shortcut) to open a shell to the good client
    system.
+
+-  Accept the SSH Warning.
 
 -  You will be logged in as user : ``ubuntu``. The session is preconfigured to
    authenticate with a certificate.

@@ -9,7 +9,7 @@ Task 1 – Initial Set-up
 - Login to the BIG-IP Configuration Utility via your preferred browser. You
   will land on the welcome page.
 
-  .. NOTE:: When you first power up a F5 DHD device you would go through the
+.. NOTE:: When you first power up a F5 DHD device you would go through the
      steps of Licensing and Provisioning.  We have assigned the management
      IP, hostname, NTP and DNS servers.  We have already licenesed the device
      for you.
@@ -22,10 +22,12 @@ Task 1 – Initial Set-up
 
 - Click **System** and explore **Resource Provisioning** page.
 
+  |image23|
+
 .. NOTE:: The above task ensures that you are using a purpose built
    DDoS Hybrid Defender.  If you are familiar with other
    F5 Modules/Technology that you have used in the past, you will
-   notice that we have none of those provisioned.
+   notice that we have none of those provisioned.  We have a new section DDOS Protection only.
 
 Task 2 – DDoS Hybrid Defender iApp and Base Configuration
 ---------------------------------------------------------
@@ -33,11 +35,13 @@ Task 2 – DDoS Hybrid Defender iApp and Base Configuration
 - In the BIG-IP Configuration Utility, open **DoS Protection > Quick
   Configuration** page.
 
-- Select Install RPM method of Onboard.
+- If not already installed, Select Install RPM method of Onboard.
 
 - Click **Install**.
 
   |image7|
+
+- After the RPM is installed you will see the following:
 
 - Open the About page.
 
@@ -84,8 +88,8 @@ Task 2 – DDoS Hybrid Defender iApp and Base Configuration
 - Open the **Network > VLANs > VLAN Groups** page and click
   **defaultVLAN**.
 
-- A Bridged (VLAN Group) L2 configuration consistent with recommended
-  practices for most deployments was automatically created.
+.. NOTE:: A Bridged (VLAN Group) L2 configuration consistent with recommended
+  practices for most deployments was automatically created. Also called "Bump in the Wire".  Can support Routed mode, SPAN and Netflow.
 
 - Open the **Network > DNS Resolvers > DNS Resolver** list page and
   click **Create**.
@@ -126,6 +130,8 @@ Task 3 – Explore DHD Device Bandwidth Thresholds
 - This page is where you would supply values to protect your bandwidth and
   integrate with Silverline or use BGP to change your routing to go through a
   scrubbing center.
+
+- CLick **Cancel** when done exploring the available settings.
 
   |image22|
 
@@ -182,3 +188,6 @@ Task 3 – Explore DHD Device Bandwidth Thresholds
 .. |image22| image:: /_static/image24.png
    :width: 6.64028in
    :height: 3.17847in
+.. |image23| image:: /_static/image62.png
+      :width: 7.29722in
+      :height: 1.87424in
