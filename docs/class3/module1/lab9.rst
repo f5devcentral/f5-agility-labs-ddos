@@ -33,9 +33,15 @@ Task 1 – Create Protected Object and Launch Attack
 
 - Under the HTTP section make the following adjustments:
 
+  -  Set Behavioral to Standard Protection.
+
+  - Make sure you check "Request Signature Detection"
+
   - Set Proactive Bot Defense to "Disabled"
 
-  - Set DOS tool to "None"
+  - Set DOS tool to "Report"
+
+  |image96|
 
 - When finished click **Create**
 
@@ -58,6 +64,20 @@ Task 1 – Create Protected Object and Launch Attack
 
   |image91|
 
+-  The health of the Protected Object will be shown. In general, a healthy
+   system will show a value around .45. If the value is .5 consistently, then
+   for some reason no learning is occurring and you should check your configuration
+   and verify that baselining traffic is hitting the protected object in  question.
+
+-   If the system has detected and is mitigating and attack, or not. This will
+    show in the output of ‘info.attack’ signal. The two numbers in brackets indicate
+    if there is an attack (1 = yes, 0 = no) and if the system is mitigating that attack (1 = yes, 0 = no).
+
+-    The output will also include the ‘info.learning’ signal, which includes
+     4 comma-separated values that show the status of the admd behavioral dos learning:
+
+     |image97|
+
 
 
 -  From the Attacker CLI issue the following command:
@@ -74,6 +94,15 @@ Task 1 – Create Protected Object and Launch Attack
 
   |image93|
 
+- In addition you will see the good client start returning a status of 000 as it is unresponsive. It no longer returns a Status 200.
+  Until the DHD starts mitigation.
+
+  |image97|
+
+- Once the DHD has enough data a Stable Signature is detected.
+
+  |image98|
+
 - Let this run for 2 minutes.  Stop the attack by pressing "Enter"" a couple of times in the **Attacker**
   window the chhosing option "3" to stop the "Attack"
 
@@ -88,6 +117,8 @@ minutes to see the results.
 
   |image95|
 
+-  This concludes the DHD Hands on Labs.
+
 
 
 .. |image91| image:: /_static/image57.png
@@ -96,7 +127,7 @@ minutes to see the results.
 .. |image92| image:: /_static/image58.png
    :width: 4.590033in
    :height: 1.17006in
-.. |image93| image:: /_static/image59.png
+.. |image93| image:: /_static/attackstarted.png
    :width: 6.50000in
    :height: 1.87068in
 .. |image94| image:: /_static/image60.png
@@ -105,3 +136,12 @@ minutes to see the results.
 .. |image95| image:: /_static/image61.png
    :width: 6.50000in
    :height: 3.72068in
+.. |image96| image:: /_static/l7settings.jpg
+   :width: 6.37000in
+   :height: 4.32068in
+.. |image97| image:: /_static/l7attack.png
+   :width: 6.37000in
+   :height: 4.32068in
+.. |image98| image:: /_static/stablesigdetected.png
+   :width: 6.37000in
+   :height: 4.32068in

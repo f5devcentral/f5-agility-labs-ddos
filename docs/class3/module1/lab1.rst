@@ -35,11 +35,13 @@ Task 2 – DDoS Hybrid Defender iApp and Base Configuration
 - In the BIG-IP Configuration Utility, open **DoS Protection > Quick
   Configuration** page.
 
-- Select Install RPM method of Onboard.
+- If not already installed, Select Install RPM method of Onboard.
 
 - Click **Install**.
 
   |image7|
+
+- After the RPM is installed you will see the following:
 
 - Open the About page.
 
