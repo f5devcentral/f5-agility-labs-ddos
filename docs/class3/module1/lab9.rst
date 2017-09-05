@@ -74,14 +74,22 @@ Task 1 – Create Protected Object and Launch Attack
 
    -  signal values: [baseline_learning_confidence, learned_bins_count , good_table_size , good_table_confidence]
 
-   -  baseline learning_confidence in % - How confident the system is in the baseline learning. This must be > 0, it's desirable to be > 50 %
+   -  baseline learning_confidence in % - How confident the system is in the baseline learning.
+
+      - This should be between 80% - 90%
 
    -  learned_bins_count - number of learned bins
 
+      - This should be > 0
+
    -  good_table_size - number of learned requests
 
-   -  good_table_confidence - how confident, as a percentage, the system is in the good table. It must be 100% for behavioral signatures.
+      - This should be > 4000
 
+   -  good_table_confidence - how confident, as a percentage, the system is in the good table.
+
+      - It must be 100% for behavioral signatures.
+      
 -  From the Attacker CLI issue the following command:
 
    .. code-block:: console
