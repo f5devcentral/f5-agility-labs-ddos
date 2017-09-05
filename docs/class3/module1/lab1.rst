@@ -88,8 +88,7 @@ Task 2 – DDoS Hybrid Defender iApp and Base Configuration
 - Open the **Network > VLANs > VLAN Groups** page and click
   **defaultVLAN**.
 
-.. NOTE:: A Bridged (VLAN Group) L2 configuration consistent with recommended
-  practices for most deployments was automatically created. Also called "Bump in the Wire".  Can support Routed mode, SPAN and Netflow.
+.. NOTE:: A Bridged (VLAN Group) L2 configuration consistent with recommended practices for most deployments was automatically created. Also called "Bump in the Wire".  F5 can support Routed mode, SPAN and Netflowas well.
 
 - Open the **Network > DNS Resolvers > DNS Resolver** list page and
   click **Create**.
@@ -189,5 +188,5 @@ Task 3 – Explore DHD Device Bandwidth Thresholds
    :width: 6.64028in
    :height: 3.17847in
 .. |image23| image:: /_static/image62.png
-      :width: 7.29722in
-      :height: 1.87424in
+   :width: 7.29722in
+   :height: 1.87424in
