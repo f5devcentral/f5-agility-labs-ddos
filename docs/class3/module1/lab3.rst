@@ -356,7 +356,7 @@ This table displays the attack details from each country.
    :width: 2.77088in
    :height: 1.80000in
 .. |image27| image:: /_static/image56.png
-   :width: 7.35069in
+   :width: 7.75069in
    :height: 2.26358in
 .. |image28| image:: /_static/image30.png
    :width: 6.28333in
