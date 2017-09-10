@@ -39,9 +39,8 @@ You will now launch the attacks and show the behavior
      # sudo bash
      # ./multivector.sh
 
-  - Click **Refresh** on the DoS Overview page. You will see some attacks
-    mitigated by **Device Configuration** and some mitigated by the more
-    specific settings on the **ServerNet Protected Object**.
+- Click **Refresh** on the DoS Overview page. You will see some attacks mitigated by
+ **Device Configuration** and some mitigated by the more specific settings on the **ServerNet Protected Object**.
 
   |image36|
 
@@ -75,11 +74,13 @@ Navigate to **Security->Event Logs->DoS->Network->Events**.
 
   |image38|
 
-.. NOTE:: You can select events from the timeline and see details about the attacks
+.. NOTE:: You can select events from the timeline and see details about the attacks.
+
 
   |image39|
 
-  - Type **Ctrl + C** to stop the attack.
+
+- Type **Ctrl + C** to stop the attack.
 
 .. |image35| image:: /_static/image37.png
    :width: 6.41389in

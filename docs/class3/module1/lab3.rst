@@ -248,9 +248,9 @@ In this task you will configure **object-level** DoS IPv4 flood protection, and
 Task 4 – View the DoS Visibility Page
 -------------------------------------
 
-You can now use the new DoS Visibility page to view statistics about the
- DoS attacks you submitted during this exercise. Images will not match up as we have not
- completed all the attacks yet.  We will revisit these pages often.
+You can now use the new DoS Visibility page to view statistics about the DoS attacks
+ you submitted during this exercise. Images will not match up as we have not completed
+  all the attacks yet.  We will revisit these pages often.
 
 - Open the **Statistics > DoS Visibility** page.
 

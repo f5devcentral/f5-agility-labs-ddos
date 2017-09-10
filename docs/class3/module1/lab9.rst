@@ -114,7 +114,7 @@ Task 1 – Create Protected Object and Launch Attack
 
 -  Let this run for 2 minutes.  Stop the attack by pressing "Enter"" a couple of times in the **Attacker** window the choosing option "3" to stop the "Attack"
 
-..NOTE::  The DHD does not record the end of the attack right away, it is very conservative, therefore you may have to wait 5 minutes to see the results.
+.. NOTE::  The DHD does not record the end of the attack right away, it is very conservative, therefore you may have to wait 5 minutes to see the results.
 
   |image94|
 
@@ -136,7 +136,7 @@ Task 1 – Create Protected Object and Launch Attack
    :height: 1.17006in
 .. |image93| image:: /_static/image66.png
    :width: 6.50000in
-   :height: 1.87068in
+   :height: 2.11000in
 .. |image94| image:: /_static/image60.png
    :width: 6.50000in
    :height: 4.58068in
