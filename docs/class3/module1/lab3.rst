@@ -1,7 +1,7 @@
 Lab 3 – Configuring Hybrid Defender DDoS protection
 ===================================================
 
-Task 1 – Disable **Device-Level** DHD DoS Protection
+Task 1 – Disable Device-Level DHD DoS Protection
 ----------------------------------------------------
 
 In this lab you will disable **Device-level** DoS flood protection, and then
@@ -57,8 +57,7 @@ behind the BIG-IP DHD.
 
   |image54|
 
-- Apply the settings above for **TCP SYN flood** and **UDP Flood**.,
-    and then click **Update**.
+- Apply the settings above for **TCP SYN flood** and **UDP Flood** and then click **Update**.
 
 - On the Jumpbox in the **Attacker** PuTTY window type (or copy and
   paste) the following:
@@ -133,7 +132,7 @@ and then issue an ICMPv4 flood and review the results.
 
    |image37|
 
--  Click **Update**.
+-  Apply the settings above for **TCP SYN flood** and **UDP Flood** and then click **Update**.
 
 .. NOTE:: This returns the configuration back to factory supplied device level
       enforcement.
@@ -150,10 +149,10 @@ and then issue an ICMPv4 flood and review the results.
 
 - You should see the attacks and statistics. Explore the sections
 
-  |image27|
-
 - In the Configuration Utility, open the **Security > Event Logs > DoS
   > Network > Events** page.
+
+  |image27|
 
 .. NOTE:: You may need to refresh this page several times before the log
      files display.
@@ -241,16 +240,17 @@ In this task you will configure **object-level** DoS IPv4 flood protection, and
 
 - The action is **Drop**.
 
-- On the Jumpbox slowly type **Ctrl + C** several times until back at
+- On the Jumpbox Attacker shell slowly type **Ctrl + C** several times until back at
   the ``scripts`` prompt.
 
-- In the BIG-IP PuTTY window type **Ctrl + C** to stop the tcpdump.
+- In the BIG-IP CLI type **Ctrl + C** to stop the tcpdump.
 
 Task 4 – View the DoS Visibility Page
 -------------------------------------
 
 You can now use the new DoS Visibility page to view statistics about the
- DoS attacks you submitted during this exercise.
+ DoS attacks you submitted during this exercise. Images will not match up as we have not
+ completed all the attacks yet.  We will revisit these pages often.
 
 - Open the **Statistics > DoS Visibility** page.
 
@@ -260,14 +260,8 @@ You can now use the new DoS Visibility page to view statistics about the
 
   |image29|
 
-- Mouse over several of the attacks to get additional details of each
-  attack.
-
 - Scroll down in the left-side of the page to view the **Attacks**
   section.
-
-- You can see the number of high, moderate, and low attacks in addition
-  to the types of attacks (HTTP, DNS, Network) and the severity levels.
 
 - View the details at the bottom of the **Attacks** section.
 
@@ -356,7 +350,7 @@ This table displays the attack details from each country.
    :width: 2.77088in
    :height: 1.80000in
 .. |image27| image:: /_static/image56.png
-   :width: 7.75069in
+   :width: 6.41389in
    :height: 2.26358in
 .. |image28| image:: /_static/image30.png
    :width: 6.28333in

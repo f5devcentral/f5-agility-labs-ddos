@@ -57,7 +57,7 @@ Task 2 – Configure the following UDP Flood vectors for ServerNet
 
   |image41|
 
-- In the Hybrid Defender UI, show the **Security > Events > Network >
+- In the Hybrid Defender UI, show the **Security > Event Logs > Network >
   IP Intelligence** Event Logs. Note the IP addresses that are being
   added to the denial\_of\_service blacklist.
 

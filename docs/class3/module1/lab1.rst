@@ -4,9 +4,7 @@ Lab 1 – DDoS Hybrid Defender Setup
 Task 1 – Initial Set-up
 -----------------------
 
-- Open a web browser and access supplied link.(Given at Location)
-
-- Login to the BIG-IP Configuration Utility via your preferred browser. You
+- Login to the BIG-IP Configuration Utility via the desktop shortcut (DHD WEB GUI). You
   will land on the welcome page.
 
 .. NOTE:: When you first power up a F5 DHD device you would go through the
@@ -93,7 +91,7 @@ Task 2 – DDoS Hybrid Defender iApp and Base Configuration
 - Open the **Network > DNS Resolvers > DNS Resolver** list page and
   click **Create**.
 
-- Enter default\_DNS\_resolver and then click **Finished**.
+- Enter **default\_DNS\_resolver** and then click **Finished**.
 
 - A DNS resolver is required by bot signatures to allow for proper
   detection of benign search engines such as Google and Bing.
@@ -130,7 +128,7 @@ Task 3 – Explore DHD Device Bandwidth Thresholds
   integrate with Silverline or use BGP to change your routing to go through a
   scrubbing center.
 
-- CLick **Cancel** when done exploring the available settings.
+- Click **Cancel** when done exploring the available settings.
 
   |image22|
 

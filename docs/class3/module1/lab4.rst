@@ -75,7 +75,7 @@ Navigate to **Security->Event Logs->DoS->Network->Events**.
 
   |image38|
 
-. NOTE:: You can select events from the timeline and see details about the attacks
+.. NOTE:: You can select events from the timeline and see details about the attacks
 
   |image39|
 
@@ -85,14 +85,14 @@ Navigate to **Security->Event Logs->DoS->Network->Events**.
    :width: 6.41389in
    :height: 4.36042in
 .. |image36| image:: /_static/image38.png
-   :width: 7.29722in
+   :width: 6.41389in
    :height: 1.87424in
 .. |image37| image:: /_static/image39.png
-   :width: 7.35069in
+   :width: 6.41389in
    :height: 2.26358in
 .. |image38| image:: /_static/image40.png
-   :width: 7.40417in
+   :width: 6.41389in
    :height: 1.06667in
 .. |image39| image:: /_static/image41.png
-   :width: 7.28750in
+   :width: 6.41389in
    :height: 3.65347in

@@ -89,7 +89,7 @@ Task 1 – Create Protected Object and Launch Attack
    -  good_table_confidence - how confident, as a percentage, the system is in the good table.
 
       - It must be 100% for behavioral signatures.
-      
+
 -  From the Attacker CLI issue the following command:
 
    .. code-block:: console
