@@ -74,12 +74,11 @@ Accessing the Lab Environment
 Task 1 – Open your RDP client and connect to your Windows Jumpbox
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-IP address provided by your Instructor or IP you obtained from the
-Training Portal.
+- A URL will be provided by your Instructor at the training site that will access the training portal.
 
-Note: Use the show options to provide
+.. NOTE:: Use the show options to provide
 
--  User name: external\_user. Password: f5DEMOs4u
+-  User name: Jumpbox\external\_user. Password: f5DEMOs4u
 
 |image3|
 
