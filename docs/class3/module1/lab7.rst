@@ -84,7 +84,6 @@ Task 2 – Establish a DNS Baseline
 
    .. code-block:: console
 
-      # sudo bash
       # cd ~/scripts
       # ./dnsbaseline.sh
 
@@ -95,7 +94,7 @@ Task 2 – Establish a DNS Baseline
 Task 3 – Initiate a DNS Attack that Exceeds the Rate Limit
 ----------------------------------------------------------
 
--  In the Attacker putty window type (or copy and paste) the following
+-  In the **Attacker** putty window type (or copy and paste) the following
    command:
 
    ``./dnsdosrate.sh``
@@ -136,16 +135,13 @@ Use **tcpdump** and **dig** to view DNS request and response packets. A
 small request produces a large response. You will **open two ssh**
 sessions to the **attacker**.
 
--  Putty to the Attacker CLI (use the shortcut).
-
--  Putty to the Attacker CLI (use the shortcut).
+-  Open two windows via Putty to the **Attacker** CLI (use the shortcut).
 
 -  In the **first ssh window** on the attacker start a tcpdump using the
    following command:
 
    .. code-block:: console
 
-      # sudo bash
       # cd ~/scripts
       # tcpdump -i lo &
 
@@ -156,7 +152,6 @@ sessions to the **attacker**.
 
    .. code-block:: console
 
-      # sudo bash
       # cd ~/scripts
       # dig ANY floodzone.local @localhost
 
@@ -287,7 +282,6 @@ Task 2 – Use a Protected Object to Mitigate a DNS Reverse Query Flood
 
    .. code-block:: console
 
-      # sudo bash
       # cd ~/scripts
       # ./dnsReverseFlood.sh
 

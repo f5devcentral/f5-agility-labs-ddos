@@ -59,7 +59,6 @@ Task 1 – Create Protected Object and Launch Attack
 
    .. code-block:: console
 
-      # sudo bash
       # cd ~/scripts
       # ./slowloris.sh
 
@@ -91,7 +90,6 @@ Task 1 – Create Protected Object and Launch Attack
 
    .. code-block:: console
 
-      # sudo bash
       # cd ~/scripts
       # ./slowread.sh
 
