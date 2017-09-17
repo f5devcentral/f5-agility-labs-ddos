@@ -46,7 +46,7 @@ Task 1 – Create Protected Object and Launch Attack
 -  From a **Firefox browser** go to https://10.1.20.11. Ignore SSL
    warning and Add Exception.
 
-.. NOTE:: that this bypasses the Hybrid Defender and accesses the server directly,
+.. NOTE:: This bypasses the Hybrid Defender and accesses the server directly,
    showing the availability and/or performance of the site directly. Click around a few links.
    This is the site we will launch an attack against and mitigate.
 

@@ -57,8 +57,7 @@ Navigate to **Security->Event Logs->DoS->Network->Events**.
 Task 2 – View the DoS Visibility Page
 -------------------------------------
 
- You can now use the new DoS Visibility page to view statistics about the DoS attacks
-  you submitted during this exercise.
+You can now use the new DoS Visibility page to view statistics about the DoS attacks you submitted during this exercise.
 
 - In the Hybrid Defender WebUI, access the DoS Visibility reporting
   tool at **Statistics->DoS Visibility.**
@@ -81,46 +80,40 @@ Task 2 – View the DoS Visibility Page
 
 - In the **Attack Duration** window view the attack.
 
-    - Scroll down in the left-side of the page to view the **Attacks** section.
+  - Scroll down in the left-side of the page to view the **Attacks** section.
 
 - View the details at the bottom of the **Attacks** section.
 
-    |image30|
+  |image30|
 
   This table displays details of each attack that has occurred.
 
 - Sort this table by **Vector**.
 
-    |image31|
+  |image31|
 
 - Scroll down in the left-side of the page to view the **Virtual Servers** section.
 
   You can see the details of device-wide attacks (**Device Level**) and
   protected object-level attacks (**/Common/ServerNet**).
 
-- Scroll down in the left-side of the page to view the Countries
-    section.
+- Scroll down in the left-side of the page to view the Countries section.
 
-- View the details at the bottom of the **Countries** section.
-
-  This table displays the attack details from each country.
+- View the details at the bottom of the **Countries** section. This table displays the attack details from each country.
 
 - View the various widgets in the panel on the right-side of the page.
 
-- Click **Network** to filter out only the network-level attacks (all
-    the attacks so far have been network-level).
+- Click **Network** to filter out only the network-level attacks (all the attacks so far have been network-level).
 
     |image32|
 
-- If it’s not already expanded, expand the **Virtual Servers** widget,
-    and then select **/Common/ServerNet**.
+- If it’s not already expanded, expand the **Virtual Servers** widget, and then select **/Common/ServerNet**.
 
 - This filters the results to only attacks at this protected object-level. Notice the changes to the map on in the **Countries** section.
 
 - Click **/Common/ServerNet** to remove the filter.
 
-- Drag the resize handle on the right-side of the main window as far to
-    the left as possible.
+- Drag the resize handle on the right-side of the main window as far to the left as possible.
 
     |image33|
 
@@ -128,13 +121,13 @@ Task 2 – View the DoS Visibility Page
 
 - Expand the **Client IP Addresses** widget.
 
-    Question:   How many client IP addresses contributed to this attack?
+Question:   How many client IP addresses contributed to this attack?
 
 - Expand the **Countries** widget.
 
 - Sort the countries by **Dropped Requests**.
 
-    |image34|
+  |image34|
 
 - Select **China**, and then view the changes to both the **Client IP Addresses** widget and the map.
 
@@ -148,10 +141,9 @@ Task 2 – View the DoS Visibility Page
 
 - Place your mouse over the peak in the graph.
 
-    Question: What is the **Average client in throughput** during the attack?
+Question: What is the **Average client in throughput** during the attack?
 
-- Feel free to examine more of the **Dashboard** page and the
-    **Analysis** page.
+- Feel free to examine more of the **Dashboard** page and the **Analysis** page.
 
 - Type **Ctrl + C** to stop the attack.
 

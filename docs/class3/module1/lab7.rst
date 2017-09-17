@@ -105,19 +105,17 @@ Task 3 – Initiate a DNS Attack that Exceeds the Rate Limit
 
 - Change the selection to **Virtual Server** and **DNSServer**.
 
-   |image62|
+  |image62|
 
-   The **A query DOS** attack vector is now dropping attack traffic.
+The **A query DOS** attack vector is now dropping attack traffic.
 
-   The script will also record the number of drops if any as a result of
-   the attack rate limit being hit.
+The script will also record the number of drops if any as a result of the attack rate limit being hit.
 
-   |image63|
+  |image63|
 
-   In the Configuration Utility open the **Statistics >>DoS Visibility**
-   page. View details in various sections
+- In the Configuration Utility open the **Statistics >>DoS Visibility** page. View details in various sections
 
-   |image64|
+  |image64|
 
 DNS Reverse flood
 ~~~~~~~~~~~~~~~~~

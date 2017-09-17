@@ -55,12 +55,12 @@ Task 1 – Create Protected Object and Launch Attack
 
 -  From the DHD CLI issue the following commands:
 
-  .. code-block:: console
+.. code-block:: console
 
-    #/root/scripts/l7bdos-reset.sh
-    #/root/scripts/l7-mon.sh
+  #/root/scripts/l7bdos-reset.sh
+  #/root/scripts/l7-mon.sh
 
--  Monitor the window.  When you see the following number go to 100, you will move on.
+- Monitor the window.  When you see the following number go to 100, you will move on.
 
   |image91|
 
@@ -114,11 +114,11 @@ Task 1 – Create Protected Object and Launch Attack
 
 -  Let this run for 2 minutes.  Stop the attack by pressing "Enter"" a couple of times in the **Attacker** window the choosing option "3" to stop the "Attack"
 
-.. NOTE::  The DHD does not record the end of the attack right away, it is very conservative, therefore you may have to wait 5 minutes to see the results.
+.. NOTE:: The DHD does not record the end of the attack right away, it is very conservative, therefore you may have to wait 5 minutes to see the results.
 
-  |image94|
+    |image94|
 
--  You can see in the top-left that a Behavioral Signature was creaated.
+-  You can see in the top-left that a Behavioral Signature was created.
 
 -  Click on this link, then click on the Signature to see it.
 
