@@ -96,37 +96,35 @@ Task 1 – Create Protected Object and Launch Attack
 
       ~/scripts/http_flood.sh
 
-  |image92|
+   |image92|
 
 -  Choose option **1**, "Attack Auction"
 
 -  You will see the attack start in the DHD SSH window:
 
-  |image93|
+   |image93|
 
 -  In addition you will see the good client start returning a status of 000 as it is unresponsive. It no longer returns a Status 200. Until the DHD starts mitigation.
 
-  |image97|
+   |image97|
 
 -  Once the DHD has enough data a Stable Signature is detected.
 
-  |image98|
+   |image98|
 
 -  Let this run for 2 minutes.  Stop the attack by pressing "Enter"" a couple of times in the **Attacker** window the choosing option "3" to stop the "Attack"
 
-.. NOTE:: The DHD does not record the end of the attack right away, it is very conservative, therefore you may have to wait 5 minutes to see the results.
+   .. NOTE:: The DHD does not record the end of the attack right away, it is very conservative, therefore you may have to wait 5 minutes to see the results.
 
-    |image94|
+   |image94|
 
 -  You can see in the top-left that a Behavioral Signature was created.
 
 -  Click on this link, then click on the Signature to see it.
 
-  |image95|
+   |image95|
 
 -  This concludes the DHD Hands on Labs.
-
-
 
 .. |image91| image:: /_static/image57.png
    :width: 6.50000in
