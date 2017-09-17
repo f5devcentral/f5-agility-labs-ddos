@@ -141,8 +141,7 @@ Task 3 – Configure Protected **Object-Level** IPv4 Flood DHD DoS Protection
 
 The DHD device wide protection is enforced for all traffic flowing through the device. For more granular
 control, we use **protected objects** and configure mitigation settings for those objects
-to be enforced. In this task you will configure **object-level** DoS IPv4 flood protection, and
- then issue an ICMPv4 flood and review the results.
+to be enforced. In this task you will configure **object-level** DoS IPv4 flood protection, and then issue an ICMPv4 flood and review the results.
 
 - On the Protect Objects page, in the Protected Objects section click
   **Create**.
