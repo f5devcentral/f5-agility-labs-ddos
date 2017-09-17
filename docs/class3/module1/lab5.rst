@@ -24,15 +24,37 @@ Task 2 – Configure the following UDP Flood vectors for ServerNet
 
 - **DoS Protection->Quick Configuration->ServerNet**
 
+Set the following:
+  DDoS Settings: UDP, Sweep
+
+  - Click **UDP Flood**
+
+    - Detection Threshold PPS: 1000
+
+    - Detection Threshold Percent: 500
+
+    - Rate Limit: 2000
+
+  - Bad Actor Detection - Check
+
+    - Per Source IP Detection PPS: 100
+
+    - Per Source IP Rate Limit PPS: 2000
+
+  - Blacklist Attacking Address
+
+    - Detection Time: 15
+
+    - Duration: 120
+
   |image40|
 
 - Click **Update** when finished.
 
-- Access the Attacker system CLI and run the UDP flood attack:
+- Access the **Attacker** system CLI and run the UDP flood attack:
 
   .. code-block:: console
 
-     # sudo bash
      # cd ~/scripts
      # ./udp_flood.sh
 
@@ -49,11 +71,10 @@ Task 2 – Configure the following UDP Flood vectors for ServerNet
      # ?
 
 .. NOTE:: This attack is relatively short-lived. You can launch it
-   again if the attack ends and you are not finished showing the various
+   again if the attack ends and you are not finished viewing the various
    reports. Simply type ‘1’ again, to re-run the attack.
 
-- In the Hybrid Defender UI, show the **Security > DoS >DoS Overview**
-  page. Note the blocks by Bad Actor.
+- In the Hybrid Defender UI, show the **Security > DoS Protection >DoS Overview** page. Note the blocks by Bad Actor.
 
   |image41|
 

@@ -17,19 +17,16 @@ and Protected Object levels.
 Task 1 – Configure Auto Thresholding
 ------------------------------------
 
--  On the Good Client, if you have not already done so, start the
+-  On the **Good Client**, if you have not already done so, start the
    network baselining. This step is needed if you didn’t start the good
-   traffic generation in Exercise 2 or accidently stopped it.
+   traffic generation in Exercise 3 or accidently stopped it.
 
    .. code-block:: console
 
-      # sudo bash
       # cd ~/scripts
       # ./baseline_l4.sh
 
--  In the Hybrid Defender UI, in Quick Configuration, select the Server5
-   Protected Object and verify that the IPv4 and TCP vectors are all at
-   default thresholds with auto-threshold disabled:
+-  In the Hybrid Defender UI, in Quick Configuration, select the **Server5** Protected Object and verify that the IPv4 and TCP vectors are all at default thresholds with auto-threshold disabled:
 
    +----------------------------+-------------+
    | Setting                    | Value       |
@@ -74,12 +71,11 @@ limits are automatically created and adjusted dynamically.
 Task 2 – Create Stress to trigger Auto Thresholding and view Reports
 --------------------------------------------------------------------
 
--  Let’s create some stress with a Flood attack. In the Attacker CLI
+-  Let’s create some stress with a Flood attack. In the **Attacker** CLI
    start the auto-threshold flood:
 
    .. code-block:: console
 
-      # sudo bash
       # cd ~/scripts
       # ./autot_flood.sh
 
