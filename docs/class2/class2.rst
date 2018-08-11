@@ -1,5 +1,5 @@
-Intermediate DDoS Protection
-============================
+Class2: Intermediate DDoS Protection
+====================================
 
 This class covers the following topics:
 

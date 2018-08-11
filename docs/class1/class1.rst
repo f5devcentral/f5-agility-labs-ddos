@@ -1,5 +1,5 @@
-Introduction to DDoS with F5 Herculon
-=====================================
+Class 1: Introduction to DDoS with F5 Herculon
+==============================================
 
 DDoS Hybrid Defender, a hybrid DDoS solution that offers comprehensive
 protection, high availability, and is easy to deploy and manage. It

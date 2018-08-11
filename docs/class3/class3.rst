@@ -1,5 +1,5 @@
-F5 Agility Lab Day:  DDoS Hybrid Defender
-=========================================
+Class 3: DDoS Hybrid Defender
+=============================
 
 DDoS Hybrid Defender, a hybrid DDoS solution that offers comprehensive
 protection, high availability, and is easy to deploy and manage. It
