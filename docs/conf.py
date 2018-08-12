@@ -51,6 +51,7 @@ rst_prolog = """
 .. |ics| replace:: iControl SOAP API
 .. |f5|  replace:: F5 Networks
 .. |f5i| replace:: F5 Networks, Inc.
+.. |dhd| replace:: DDoS Hybrid Defender
 .. |year| replace:: %s
 """ % (classname,
        classname,
