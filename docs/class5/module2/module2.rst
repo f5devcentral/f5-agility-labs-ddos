@@ -1,7 +1,7 @@
-Configuring DoS Protection for Static DoS Vectors
-=================================================
+Module - Network Level DoS Protection
+=====================================
 
-In this module you will learn how to defense against several basic DDOS vectors using the F5 DHD device.
+In this module you will learn how the F5 Hybrid Defender protects from several network level DDoS vectors.
 
 .. toctree::
    :maxdepth: 1
