@@ -6,6 +6,7 @@ Task 1 – View the New Visibility Page
 You can now use the new DHD Visibility page to view the Dashboard, Analysis, Event Logs and Debugging info.
 
 - Take advantage of the expandable window feature to give more screen space to the GUI.
+
 |image218|
 
 - In the Hybrid Defender Web UI, go to the Visibility >> Dashboard overview.
@@ -13,7 +14,8 @@ You can now use the new DHD Visibility page to view the Dashboard, Analysis, Eve
 .. NOTE:: DoS Visibility Dashboard defaults to not Auto-Refresh. Click the Button to set **Real-Time** to **ON**.
 
 - You should see categories as:  Attack Duration, Attacks, Virtual Severs, System Health and Countries.
-Scroll through the Left Pane and explore the windows.
+  Scroll through the Left Pane and explore the windows.
+
 |image213|
 
 - You can use the slider to shorten the time frame, or filter on the protocol, if desired when viewing attacks if needed.

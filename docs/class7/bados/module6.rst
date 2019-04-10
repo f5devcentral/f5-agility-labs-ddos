@@ -22,6 +22,7 @@ In the previous modules, we examined both request signature detection and bad ac
 8.  On the right side of the **DoS Dashboard**, grab the handle just to the right of the HTTP and Network filter labels, and pull left to the midway point of the screen.
 
 9.  Using the inner-most vertical scroller on the right-hand side of the screen, scroll down until you see the **Transaction Outcomes** dynamic panel.  Click the panel to expand, then click the three vertical lines to the left of the Transaction Outcomes label.  Click on **Columns**,  and click the green icon to remove all row labels except the following:
+
    * Transactions
    * Attacks
    * Valid Transactions
@@ -110,6 +111,7 @@ The exercise above shows Request Signatures and Bad Actor Detection working in t
 
 1.  Return to the iRule configured in module 1 (:ref:`XFF_iRule`)
 2.  Modify line #10 to match below and click **Update**
+
    .. code-block:: tcl
       :linenos:
       :emphasize-lines: 10
@@ -127,8 +129,8 @@ The exercise above shows Request Signatures and Bad Actor Detection working in t
                HTTP::header insert X-Forwarded-For $xff
          }
        }
-3.  Return to the browser tab monitoring the DoS Dashboard.  Shortly, after the iRule change you should now see the **Blocked Bad Request** counter incrementing again. In time, |awaf| will begin to learn all the new IP's as well, but you should have enough time to see both mitigations active concurrently.
 
+3.  Return to the browser tab monitoring the DoS Dashboard.  Shortly, after the iRule change you should now see the **Blocked Bad Request** counter incrementing again. In time, |awaf| will begin to learn all the new IP's as well, but you should have enough time to see both mitigations active concurrently.
 4.  Return to the browser tab monitoring the Dynamic Request Signatures.  You should now see the attack signatures are again active and mitigating the attack until all new sources have been learned by bad actor detection.
 
 This completes the Introduction to L7 Behavioral DoS Self Guided Lab.  Thanks for attending the session, and have a great week at F5 Agility 2018!

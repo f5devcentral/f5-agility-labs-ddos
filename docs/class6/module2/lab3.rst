@@ -65,6 +65,7 @@ Task 2 – Run Scripts to start L4 traffic generation – Good Traffic
    # ./baseline_l4.sh
 
 - In the Hybrid Defender UI, in **Dos Configuration >> Device Protection**, **Click** in the AutoThreshold Section **Start Relearning**
+
 |image51|
 
 In the Hybrid Defender Web UI, Navigate to **Dos Configuration >> Protection Profiles**  Select the **dos** profile and Click the **Network** box.
@@ -76,9 +77,9 @@ select each vector and clicking the **Set Threshold Mode** drop down and selecti
 |image52|
 
 .. NOTE:: The system is updating the detection thresholds. With auto-thresholding, the system adjusts the detection thresholds based on observed traffic patterns.
-However, mitigation rate limits are always dynamic based on detected system or protected object stress. If anomalous levels of
-traffic are running, but there is no stress, the Hybrid Defender will generate alerts but will not block traffic. Under stress, the rate
-limits are automatically created and adjusted dynamically.
+   However, mitigation rate limits are always dynamic based on detected system or protected object stress. If anomalous levels of
+   traffic are running, but there is no stress, the Hybrid Defender will generate alerts but will not block traffic. Under stress, the rate
+   limits are automatically created and adjusted dynamically.
 
 - In the Hybrid Defender UI, navigate to **Dos Configuration >> Dos Overview**, view in Dos Attack or Device Dos, the device sees no attacks.
 

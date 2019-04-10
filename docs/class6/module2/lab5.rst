@@ -1,10 +1,10 @@
 Lab 5 – Configuring L7 Behavioral Attack Protection
-====================================================
+=======================================================
 
 In this exercise we will use a protected object and analyze how the |dhd| reacts and mitigates L7 attacks based on Behavioral Analysis.
 
 Task 1 – Create Protection Profile for Dos Behavioral Object
-------------------------------------------------------
+----------------------------------------------------------------
 
 - In the BIG-IP Configuration Utility, open the **DoS Configuration >> Protection Profiles** page and click the **Create** button.
 
@@ -27,7 +27,7 @@ Task 1 – Create Protection Profile for Dos Behavioral Object
 This places this profile into a behavioral based detection profile. No vectors are used in this demo.
 
 Task 2 – Create Protected Object and Launch Attack
---------------------------------------------------
+------------------------------------------------------
 
 - In the BIG-IP Configuration Utility, open the **DoS Protection >> Quick Configuration** page and in the Protected Objects section click
    **Create**.
@@ -152,6 +152,7 @@ You can use variations of the filters in grep if you are familiar.
 |image97|
 
 - You will see the |dhd| issue a reset when it mitigates the attack.
+
 |image507|
 
 - Explore Dos Configuration >> Protected Objects.  Click on the "Attack Status" to expand.

@@ -63,7 +63,7 @@ Task 2 – Create Protection Profile for Dos https Object
 - In the BIG-IP Configuration Utility, open the **DoS Configuration >> Protection Profiles** page and click the **Create** button.
 
 - Name the profile dos_HTTPS and **select** the HTTP Families Vectors.
-Change the settings depicted in the image below.
+  Change the settings depicted in the image below.
 
 - Hover in the HTTP box and **Click** in the ""White Space""
 - Click "Per Source IP requests"
@@ -74,6 +74,7 @@ Change the settings depicted in the image below.
 - Ensure Signature Detection is Selected.
 - Under Mitigation select Request Blocking "Rate Limit"
 - **Commit Changes to System**
+
 |image402|
 
 Task 3 – Modify Default Eviction Policy
@@ -91,6 +92,7 @@ In order to mitigate such an attack we need to make adjustments to the default-e
 - Under the "Grace Period" change the default value to 5 Seconds.
 - Under "Slow Flow Throttling" change the value to "absolute" and 50 connections as the value.
 - Click **Update** when finished.
+
 |image403|
 
 What we are doing here is setting up the policy to recognize and then evict slow flows through the |dhd|.

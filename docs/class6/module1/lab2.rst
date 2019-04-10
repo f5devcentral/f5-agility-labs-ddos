@@ -29,7 +29,7 @@ Task 2 – Disable **Device-Level** DHD DoS Protection
 ----------------------------------------------------
 
 - In the Configuration Utility, in the **DoS Configuration >> Device Protection** section click **Network**.
-|image205|
+  |image205|
 - On the left side of the page select the checkbox for **ICMPv4 flood** and **UDP Flood**.
 
 - At the bottom just below the last vector, choose the drop down **Set State** and then select **Disabled**.
@@ -114,7 +114,7 @@ Task 4 – Attack the |dhd| again and see what you can tell.
 - This page will show the preset vectors for the Device and the Current **Attack Status**, **Average EPS**, **Current Dropped EPS** and the **Detection Thresholds** including the **Threshold Mode**.
 
 - Scroll down until you see ICMPv4 Flood.
-|image290|
+  |image290|
 
 .. ATTENTION:: Why is the DHD not dropping packets?
 
@@ -127,13 +127,13 @@ Task 4 – Attack the |dhd| again and see what you can tell.
 .. NOTE:: The new fly out page.
 
 - Manually Set The Detection Threshold PPS to 100 and the Mitigation Threshold EPS to 500. Scroll up and **Commit Changes to System**
-|image291|
+  |image291|
 - Relaunch the Attack from the Attacker CLI.
 
 - In the Configuration Utility, open the **DoS Configuration >> DoS Overview (non HTTP)** page.
 
 - Make sure the Filter Type is "Dos Attack". See the Dropped traffic with the new thresholds. Alternatively, you can go "Device DoS", scroll down to ICMPv4 Flood and see the same information."
-|image292|
+  |image292|
 - Look at the Protection Profile: dos-device, attack status and various rates.
 
 - You can terminate the Attack with Ctrl+C when finished.

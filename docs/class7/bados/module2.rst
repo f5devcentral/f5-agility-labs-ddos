@@ -19,10 +19,10 @@ Settings in this screen are profile wide, and can affect all aspects of the dos 
 
 
 
-1.  **Application Security** 
+1. **Application Security** 
    This setting enables or disables the DoS profile.
 
-2.  **Heavy URL Protection**
+2. **Heavy URL Protection**
    Heavy URL's are application resources which may consume more backend resources with each client request.  Additionally, URLs which are not generally considered heavy may become heavy under significant load or attack.  As a result,  low rate requests targeting these URLs can cause significant DoS attacks, and be difficult to differentiate from legitimate requirements based on rate alone.  |awaf| automatically detects heavy URLs by measuring the latency tail ratio, which is the number of transactions whose latency is consistently greater than the latency threshold defined in this configuration option.  A URL is considered heavy if its latency is more than two times the site global average over a 24 hour (default) period.
         
    |heavy-url-det|

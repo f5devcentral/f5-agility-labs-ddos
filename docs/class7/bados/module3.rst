@@ -21,11 +21,13 @@ To review the settings below, navigate to **Security ›› DoS Protection ›�
 
 2. **Threshold Mode**
    Defines how |awaf| derives thresholds to be used in detecting the TPS component of a stress-based attack.  Options include:
+
       * **Manual**: Administrator explicity configures TPS and percentage thresholds based on their knowledge of the environment or specific requirements.
       * **Automatic**: |awaf| monitors traffic rates automatically and calculates the thresholds based on normal traffic volume to the application.
 
 3. **Stress-based Detection Options**
    |awaf| can trigger an attack if any/all of the following detection methods exceed the thresholds defined or calculated for the detection method:
+
       * **By Source IP**: A specific source IP has exceeded the thresholds defined in the detection thresholds.
       * **By Device ID**: A specific device has exceeded the thresholds defined in the detection thresholds.  Device ID is ASM calculating a fingerprint for a given device.  The feature requires Javascript injection for proper operation.  However, the feature offers the benefit of detecting a specific device, even if the attack varies its source IP address.
       * **By Geolocation**: A country/geolocation has exceeded the thresholds defined in the detection thresholds.
@@ -62,6 +64,7 @@ Having reviewed the options for configuring Stress-based dos mitigation, now let
 
 4. **Mitigation**
    Defines the mitigation mode for |awaf| Behavioral DoS.  Options include:
+
       * **No Mitigation**: 
          * Monitors traffic, generates signatures, and identifies bad actors, but does not perform any mitigation.
       * **Conservative Protection**: 

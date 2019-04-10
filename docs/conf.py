@@ -51,6 +51,10 @@ rst_prolog = """
 .. |ics| replace:: iControl SOAP API
 .. |f5|  replace:: F5 Networks
 .. |f5i| replace:: F5 Networks, Inc.
+.. |dhd| replace:: DDoS Hybrid Defender
+.. |awaf| replace:: Advanced Web Application Firewall
+.. |xj| replace:: Xubuntu Jumpbox
+.. |kw| replace:: Kali Linux Workstation'
 .. |year| replace:: %s
 .. |github_repo| replace:: %s
 """ % (classname,
