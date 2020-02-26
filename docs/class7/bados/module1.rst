@@ -65,8 +65,6 @@ Below are the steps to associate this profile with the |ltm| virtual server proc
 
 3. In the **Log Profile** section of the configuration move the **local-dos** log profile from **Selected** to **Available** and move the **l7\_dos\_bot\_logger** from **Available** to **Selected**. Then click **Update**.
 
-4. For purposes of this lab, **Disable** the **Application Security Policy** and remove **asm\_allrequests** from the **Log Profile.**
-
    |vs-appsec-policy-settings|
 
 .. _XFF_iRule:
