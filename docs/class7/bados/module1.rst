@@ -16,18 +16,17 @@ In this module, we will configure the base DoS profile and |ltm| objects used in
 
 Set up the DoS profile
 ^^^^^^^^^^^^^^^^^^^^^^
-In the section you will create a DoS profile with **Behavioral Detection and Analysis** enabled, and attach the DoS profile to the virtual server. 
+In the section you will create a DoS profile with **Behavioral Detection and Analysis** enabled and attach the DoS profile to the virtual server. 
 
-1. Using Chromium Browser on the |xj|, open a tab to the GUI on bigip01 (https://10.1.10.245).  If prompted for default keyring password from client workstation use the password associated with the f5student account.
+1. Using Chromium Browser on the |xj|, open a tab to the GUI on bigip01 (https://10.1.10.245).  
+   
+   .. TIP:: If prompted for default keyring password from client workstation use the password associated with the f5student account
+
 2. Navigate to **Security ›› DoS Protection : Protection Profiles**
 3. Select **Create**. Name your profile **insecureapp1\_dosprofile** and select **Finished**. Open your **insecureapp1\_dosprofile** DoS profile.
-4. Click **General Settings** under the **Application Security** heading, then click **Edit All** to the right of **Application Security** on the rightside of the panel.
-    
-   This will activate the other sections of the DoS profile.
+4. Click **General Settings** under the Application Security heading, then click **Edit All** on the rightside of the panel.  This will activate the other sections of the DoS profile.
 
    |dos-prof-gen-settings-marked|
-
-   .. TIP:: At any point you can save your changes by hitting the **Update** button in the lower left-hand corner
 
 5. Select **Behavioral & Stress-based Detection** and change **Operation Mode** to **Blocking**.
 
@@ -35,15 +34,15 @@ In the section you will create a DoS profile with **Behavioral Detection and Ana
 
    b. Click **Edit** on the rightside of the row labelled **Behavioral Detection and Mitigation**
    
-   c. Under **Behavioral Detection and Mitigation** check the **Request signatures detection** and set the **Mitigation** to **Standard**.  For now, please leave **Bad Actors Detection**, **Accelerated HTTP Signatures**, and **TLS fingerprinting signatures** unchecked.
+   c. Under **Behavioral Detection and Mitigation** check the **Request signatures detection** and set the **Mitigation** to **Standard**.  For now, please leave Bad Actors Detection, Accelerated HTTP Signatures, and TLS fingerprinting signatures unchecked.
 
-   d. Click **Update** in the lower left-hand corner. Collapse all the sections, and **Behavioral & Stress-based Detection** should match the figure below.
+   d. Click **Update** in the lower left-hand corner. collapse all the sections, and **Behavioral & Stress-based Detection** should match the figure below.
 
    |dos-prof-stress-review|
 
 Create a DoS Logging Profile
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Logging profiles are required to enable local and remote logging for Application DoS and Bot events.  In this lab, we will use local logging to review events.  Below are the steps to configure the logging profile and attach to your test virtual server.
+Logging profiles are required to enable local and remote logging for Application DoS and bot events.  In this lab, we will use local logging to review events.  Below are the steps to configure the logging profile and attach to your test virtual server.
 
 1. Go to **Security ›› Event Logs : Logging Profiles** and click **Create** on right-hand side of the configuration screen. Name your profile **l7\_dos\_bot\_logger** then check the **DoS Protection** **Enabled** boxes.
 
@@ -59,7 +58,7 @@ Add the DoS profile to a virtual server
 
 Below are the steps to associate this profile with the |ltm| virtual server processing the application traffic in this lab.
 
-1. Navigate to **Local Traffic > Virtual Servers > Virtual Server List** and select **insecureApp1_vs**. Under the **Security** tab on the top bar select **Policies**.
+1. Navigate to **Local Traffic > Virtual Servers > Virtual Server List** and select **insecureApp1_http_vs**. Under the **Security** tab on the top bar select **Policies**.
 
 2. Enable the **DoS Protection Profile** and select the **insecureapp1_dosprofile** profile.
 
@@ -111,7 +110,7 @@ Create HTTP Profile to Accept X-Forwarded-For HTTP Header
 
 Attach iRule and HTTP Profile to |ltm| Virtual Server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-1. Navigate to the **insecureApp1_vs** virtual server. In the **Properties** tab, under **Configuration** section, select **xff\_http** for the **HTTP Profile**. 
+1. Navigate to the **insecureApp1_http_vs** virtual server. In the **Properties** tab, under **Configuration** section, select **xff\_http** for the **HTTP Profile**. 
 2. Click the **Resources** tab in the virtual server navigation bar, in the **iRules** section select the **Manage** button, and move the **XFF\_mixed\_Attacker\_Good\_iRule** from the **Available** to the **Enabled** box. 
 3. Click **Finished** button at bottom of the Resource Management page.
 
@@ -120,41 +119,41 @@ Generate Traffic to Establish Baseline
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 |awaf|'s Behavioral DoS feature is based on learning and analyzing all traffic to the web application, building baselines, and then idenitifying anamolies when server stress is detected.  As a result, in this lab, we need to generate normal traffic allowing |awaf| to build a baseline.
 
-You will use the  |xj| to generate legitimate traffic and bad traffic, ens4 has [10.1.10.51-54, 10.1.10.100/24] configured and 10.1.10.100 will be the source-IP used for the good traffic script. The source IP will match XFF\_mixed\_Attacker\_Good\_iRule created above, and an X-Forwarded-For header will be placed in the HTTP request in the 153.172.223.0/24 IP address range.
+You will use the  |xj| to generate legitimate traffic and bad traffic, interface ens4 has [10.1.10.51-54, 10.1.10.100/24] configured.  The address 10.1.10.100 is used to source our "good" traffic and the 10.1.51-54 addresses are the source addresses used by our attack scripts of "bad" traffic. 
 
 In the home directory (/home/f5student/agility2020wafTools) on the |xj|, you will find the two scripts used for this lab:
 
-   * **baseline\_menu.sh** - is used to create baseline traffic
-   * **AB\_SSL\_DOS.sh** - is used to launch L7 DOS attacks
+   * **baseline\_menu_http.sh** - is used to create baseline traffic
+   * **AB\_DOS.sh** - is used to launch L7 DOS attacks
 
 
 1. Start baseline traffic, using |xj| Terminal application, navigate to the home directory, then type:
 
    .. code-block:: console
 
-      f5student@client01:~/agility2020wafTools$ ./baseline_menu.sh
+      f5student@client01:~/agility2020wafTools$ ./baseline_menu_http.sh
 
       - Select option 2 **alternate** and keep it running in the window
 
 
-   .. TIP:: This is your valid traffic, and the number of requests will change over time. The requests also change as the script continuously alters the User-Agent header and the requested URI. Both values are randomly taken from files in the “source” directory in the home directory.
+   .. TIP:: This is your valid traffic and the number of requests will change over time. The requests also change as the script continuously alters the User-Agent header and the requested URI. Both values are randomly taken from files in the “source” directory in the home directory.
 
 
-2.  Next, validate you are seeing the traffic, and |awaf| is actively building learning baselines. From a separate Terminal window type:
+2.  Next, validate you are seeing the traffic, and |awaf| is actively building learning baselines. From a separate Terminal window or tab:
 
    .. code-block:: console
     
       f5student@client01:~/agility2020wafTools$ ssh admin@10.1.10.245
 
 
-   Then, run the following command:
+   Then, run the following commands:
 
    .. code-block:: console
 
       admin@(ip-10-1-1-8)(cfg-sync Standalone)(Active)(/Common)(tmos)# bash
-      [admin@ip-10-1-1-8:Active:Standalone] config # admd -s vs./Common/insecureApp1_vs+/Common/insecureapp1_dosprofile.info.learning
+      [admin@ip-10-1-1-8:Active:Standalone] config # admd -s vs./Common/insecureApp1_http_vs+/Common/insecureapp1_dosprofile.info.learning
 
-      - /Common/insecureApp1_vs  – is the name of the virtual server
+      - /Common/insecureApp1_http_vs  – is the name of the virtual server
       - /Common/insecureapp1_dosprofile    – is the name of the DoS profile.
       **It may take several minutes for baseline numbers to be generated**
 
@@ -205,34 +204,22 @@ In the home directory (/home/f5student/agility2020wafTools) on the |xj|, you wil
       [admin@ip-10-1-1-8:Active:Standalone] config #tail -f /var/log/dosl7/dosl7d.log
     
 
-.. |dos-prof-properties| image:: _images/dos-prof-properties.png
-   :width: 5.59740in
-   :height: 2.73203in
-
 .. |dos-prof-gen-settings-marked| image:: _images/dos-prof-gen-settings-marked.png
-   :width: 5.59740in
-   :height: 2.73203in
-
-.. |dos-prof-bot-sigs-marked| image:: _images/dos-prof-bot-sigs-marked.png
-   :width: 6.59740in
-   :height: 5.73203in
-
-.. |dos-prof-tps-marked| image:: _images/dos-prof-tps-marked.png
-   :width: 6.59740in
-   :height: 1.73203in
+   :width: 10.259740in
+   :height: 4.73203in
 
 .. |dos-prof-stress-review| image:: _images/dos-prof-stress-review.png
-   :width: 6.59740in
-   :height: 5.73203in
+   :width: 10.259740in
+   :height: 4.73203in
 
 .. |log-prof-bot-options| image:: _images/log-prof-bot-options.png
-   :width: 5.59740in
+   :width: 10.59740in
    :height: 4.73203in
 
 .. |vs-appsec-policy-settings| image:: _images/vs-appsec-policy-settings.png
-   :width: 5.59740in
-   :height: 2.73203in
+   :width: 10.259740in
+   :height: 4.73203in
 
 .. |shell-admd-output| image:: _images/shell-admd-output.png
-   :width: 7.59740in
-   :height: 2.33203in
+   :width: 10.59740in
+   :height: 3.33203in

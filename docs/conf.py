@@ -53,7 +53,7 @@ rst_prolog = """
 .. |f5i| replace:: F5 Networks, Inc.
 .. |dhd| replace:: DDoS Hybrid Defender
 .. |awaf| replace:: Advanced Web Application Firewall
-.. |xj| replace:: Xubuntu Jumpbox
+.. |xj| replace:: Ubuntu Linux Client Workstation
 .. |kw| replace:: Kali Linux Workstation'
 .. |year| replace:: %s
 .. |github_repo| replace:: %s
@@ -179,7 +179,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = classname
-copyright = u'2019, F5 Networks, Inc.'
+copyright = u'2020, F5 Networks, Inc.'
 author = u'F5 Networks, Inc.'
 
 # The version info for the project you're documenting, acts as replacement for
