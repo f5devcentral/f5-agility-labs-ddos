@@ -11,16 +11,15 @@ In this module, we will review the various settings and options that make up a l
 Review DoS Profile General Settings
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Navigate to **Security ›› DoS Protection ›› DoS Profiles** and click the DoS profile **hackazon_bados** created earlier for this module.
+Navigate to **Security ›› DoS Protection ›› DoS Profiles** and click the DoS profile **insecureapp1_dosprofile** created earlier for this module.
  
 Settings in this screen are profile wide, and can affect all aspects of the dos configuration.
 
 |gen-settings|
 
 
-
-1. **Application Security** 
-   This setting enables or disables the DoS profile.
+1. **Source IP Address Whitelist** 
+   Source IP Whitelist option makes use of |bip| Shared Address list function to define lists of Source IP addresses to whitelist from L7 DoS protection.  From this screen an administrator can reference an existing Shared Address List, or jump to that part of the GUI to create a new Address List.
 
 2. **Heavy URL Protection**
    Heavy URL's are application resources which may consume more backend resources with each client request.  Additionally, URLs which are not generally considered heavy may become heavy under significant load or attack.  As a result,  low rate requests targeting these URLs can cause significant DoS attacks, and be difficult to differentiate from legitimate requirements based on rate alone.  |awaf| automatically detects heavy URLs by measuring the latency tail ratio, which is the number of transactions whose latency is consistently greater than the latency threshold defined in this configuration option.  A URL is considered heavy if its latency is more than two times the site global average over a 24 hour (default) period.
@@ -41,7 +40,10 @@ Settings in this screen are profile wide, and can affect all aspects of the dos 
 
    |geolocs| 
 
-4. **Single Page Application**
+4. **URL Patterns**
+   URL Patterns allow groups of similar URL's to be treated as a single logical URL for the purpose of L7 DoS protection.  This is useful in environments were customers have many similar URL's that differ only by a certain path parameter, or other dynamically generated portion of the URL.  An attack against a single URL in this group may not exceed any defined thresholds, but the aggregate attack against many individual URL's definitely exceeds thresholds and leads to poor application performance or reduced service availability.
+
+5. **Single Page Application**
    Single Page Applications (SPA) represent a change in application architecture that moves much of the content rendering and routing to client-side code.  Application requests which require server-side processing are sent as AJAX requests towards server, and the response is typically JSON/XML; this is different from traditional web applications that send HTTP requests, and generally levergage HTML as the predominant response content type. As a result, |awaf| needs to modify the way it challenges clients for features like Proactive Bot Defense and capturing Device ID in the TPS/Stress based anomaly detections.  Enabling this option modifies |awaf|'s challenge and challenge validation mechanisms.  When deploying L7 DoS protections it is important to understand the application architecture, and if protecting a SPA, enabling this option is critical for proper operation.  
 
 
