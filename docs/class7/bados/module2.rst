@@ -6,7 +6,7 @@
 Application Security DoS Profiles
 ==================================================
 
-In this module we will review the various settings and options that make up a layer 7 DoS profile.  We will not review each and every setting, but instead we will focus on key settings which will most likely require attention during a production deployment.  More detail on each individual setting can be found by viewing the Help Menu on left side of the |bip| Configuration Utility (GUI) or production documentation.
+In this module we will review the various settings and options that make up a layer 7 DoS profile.  We will not review each and every setting, but instead we will focus on key settings which will most likely require attention during a production deployment.  More detail on each individual setting can be found by viewing the Help Menu on left side of the |bip| Configuration Utility (GUI) or product documentation.
 
 
 Review DoS Profile General Settings

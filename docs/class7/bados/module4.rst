@@ -46,22 +46,22 @@ In |bip| version 14.1 a Behavioral DoS dashboard was added in the GUI.  This das
 
    |dos-attack-sig-detail|
 
-   - ** (#1) Signature ID**: Signature ID generated for this signature.  You can use the signature ID in DoS Analysis/Dashboard views (explored in module 6) to get more details on actions taken by this signature.
+   - **(#1) Signature ID**: Signature ID generated for this signature.  You can use the signature ID in DoS Analysis/Dashboard views (explored in module 6) to get more details on actions taken by this signature.
 
-   - ** (#2) Deployment State**: current state of the signature.  Options include:
+   - **(#2) Deployment State**: current state of the signature.  Options include:
      
       * **Mitigate** - Collect stats, learn, alert, and mitigate.  All thresholds and threshold actions are applied, and rate limiting occurs if the device is under high stress.  
       * **Detect Only** - Collects stats, learn, and alert.  Develops dynamic signatures without enforcing any thresholds or limits.  
       * **Learn Only** - Collect stats and learn.  Develops dynamic signatures without enforcing any thresholds or limits
       * **Disabled** - No stat collection or mitigation, totally disables the signature.
 
-   - ** (#3) Attack Status** - the state of the signature with respect to ongoing attacks.  Specifically, defines whether this particular signature is being used to mitigate an on-going attack.
+   - **(#3) Attack Status** - the state of the signature with respect to ongoing attacks.  Specifically, defines whether this particular signature is being used to mitigate an on-going attack.
 
-   - ** (#4) Attack ID** - the attack ID for the attack that generated this signature.  Clicking the attack ID will take you to the DoS Analysis views filtered on this attack ID.
+   - **(#4) Attack ID** - the attack ID for the attack that generated this signature.  Clicking the attack ID will take you to the DoS Analysis views filtered on this attack ID.
 
-   - ** (#5) Predicates List** - the conditions for the request to be associated with this signature.  Includes one or more match ,expresssions, joined by logical operators, which the system uses to match traffic causing a DoS attack.
+   - **(#5) Predicates List** - the conditions for the request to be associated with this signature.  Includes one or more match ,expresssions, joined by logical operators, which the system uses to match traffic causing a DoS attack.
 
-   - ** (#6) Attack History** - provides an account of all attacks in which this signature has been used to mitigate.  
+   - **(#6) Attack History** - provides an account of all attacks in which this signature has been used to mitigate.  
 
    .. NOTE:: Dynamic Attack signatures generated will remain in the list up to the max number of signatures supported, and will be will re-used whenever an attack is detected, and traffic matches the conditions defined in the signature
 
@@ -86,8 +86,8 @@ In |bip| version 14.1 a Behavioral DoS dashboard was added in the GUI.  This das
 
 
 .. |dos-attack-sig-detail| image:: _images/dos-attack-sig-detail.png
-   :width: 8.59740in
-   :height: 4.33203in
+   :width: 12.59740in
+   :height: 6.33203in
 
 .. |bados-dashboard| image::_images/bados-dashboard.png
    :width: 8.59740in

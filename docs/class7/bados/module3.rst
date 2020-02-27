@@ -1,32 +1,30 @@
 .. _module3:
 
-.. NOTE:: The goal of this module is to explain the Stress-Based and Behavioral DoS configuration options.  The module does not contain any exercises.  If you are already familar with a the settings you can skip to module 5.
+.. NOTE:: The goal of this module is to explain DoS profile configuration options.  The module does not contain any exercises.  If you are already familar with a the settings in an Application Security DoS profile you can skip to module 4.
 
 Stress-Based and Behavioral DoS Profile Settings
 =================================================
 
-In this module, we will review the various settings for configuring Stress-based and Behavioral DoS protections in more detail.  We will not review each and every setting, leaving that exercise up to the reader, but instead will focus on key settings which will most likely require attention during a production deployment.  More detail on each individual setting can be found by viewing the **Help** on left side of the |bip| Configuration Utility (GUI).
+In this module, we will review the various settings for configuring Stress-based and Behavioral DoS protections in more detail.    We will not review each and every setting, but instead we will focus on key settings which will most likely require attention during a production deployment.  More detail on each individual setting can be found by viewing the Help Menu on left side of the |bip| Configuration Utility (GUI) or product documentation.
+
 
 Review Stress-Based Dos Profile Settings
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-To appreciate the powerful nature of |awaf|'s Behavioral DoS feature, it first makes sense to analyze one of the other L7 DoS protection mechanisms.  For this exercise, we will examine the options and behaviors of the Stress-based DoS protections available in an Application Security DoS profile.
+To appreciate the powerful nature of |awaf|'s Behavioral DoS feature it first makes sense to analyze one of the other L7 DoS protection mechanisms.  For this exercise, we will examine the options and behaviors of the Stress-based DoS protections available in an Application Security DoS profile.
 
 To review the settings below, navigate to **Security ›› DoS Protection ›› DoS Profiles**, click the DoS profile **insecureapp1_dosprofile** created earlier for this module, then click **Behavioral & Stress-based Detection** in the **Application Security** navigation menu, and set the **Operation Mode** to **Transparent**.
 
 |stressbased|
 
 
-1. **Operation Mode**
-   Defines the operational mode for the stress-based dos protection feature.  Available options include: Blocking, Transparent, Off.  Blocking means feature will detect, report, and mitigate.  Transparent means feature will detect, report, but will not mitigate.  Off means the feature is disabled.
+**(#1) Operation Mode -** Defines the operational mode for the stress-based dos protection feature.  Available options include: Blocking, Transparent, Off.  Blocking means feature will detect, report, and mitigate.  Transparent means feature will detect, report, but will not mitigate.  Off means the feature is disabled.
 
-2. **Threshold Mode**
-   Defines how |awaf| derives thresholds to be used in detecting the TPS component of a stress-based attack.  Options include:
+**(#2) Threshold Mode -** Defines how |awaf| derives thresholds to be used in detecting the TPS component of a stress-based attack.  Options include:
 
       * **Manual**: Administrator explicity configures TPS and percentage thresholds based on their knowledge of the environment or specific requirements.
       * **Automatic**: |awaf| monitors traffic rates automatically and calculates the thresholds based on normal traffic volume to the application.
 
-3. **Stress-based Detection Options**
-   |awaf| can trigger an attack if any/all of the following detection methods exceed the thresholds defined or calculated for the detection method:
+**(#3) Stress-based Detection Options -** |awaf| can trigger an attack if any/all of the following detection methods exceed the thresholds defined or calculated for the detection method:
 
       * **By Source IP**: A specific source IP has exceeded the thresholds defined in the detection thresholds.
       * **By Device ID**: A specific device has exceeded the thresholds defined in the detection thresholds.  Device ID is |awaf| calculating a fingerprint for a given device.  The feature requires Javascript injection for proper operation.  However, the feature offers the benefit of detecting a specific device, even if the attack varies its source IP address.
@@ -34,35 +32,35 @@ To review the settings below, navigate to **Security ›› DoS Protection ›�
       * **By URL**: Request traffic to a specific (or set of URL's identified in URL patterns section of the DoS Profile General Properties) has exceeded the thresholds defined in the detection thresholds.
       * **Site Wide**: Request traffic to the entire web site has exceeded the thresholds defined in the detection thresholds, **and** an attack has not been detected using any of the other detection criteria.  Site-wide is considered last resort.
 
+**(#4) Thresholds -** When using manual thresholds an administrator can define absolute and relative thresholds for each available detection method.
+
+**(#5) Mitigation Options -** For each detection method three mitigation options are available.  A customer can choose to mitigate via CS Integrity Checks (JS challenges), CAPTCHA, or Request Blocking/Rate Limiting.  All three can be selected simulataneously and if so |awaf| will cycle through the methods until a method is effective at eliminating the attack.  
+
+**(#6) Prevention Duration-** As mentioned in the mitigation option section above, F5 |awaf| will move from one mitigation method to another until the attack is mitigated.  |awaf| calls this movement from one mitigation method to another an escalation.  The escalation period defined in this section defines how much time |awaf| will spend using one mitigation technique before it escalates to another method.  The de-escalation period define the period of time that must expire before |awaf| starting at the beginning and retrying each of the steps.
+
    .. NOTE::
-      It is important to understand that while stress-based protections are monitoring server latency and tracking application request volume in short and long term intervals, the detection methods listed above are the only ways to identify when an attack is on-going.  This, as you will see, is quite a bit different than the way |awaf| Behavioral DoS feature identifies attacks and attackers!
+      It is important to understand that while stress-based protections are monitoring server latency and tracking application request volume in short and long term intervals similar to the BaDoS operates, the detection methods listed above are the only ways to identify and mitigate an on-going attack.  This, as you will see, is quite a bit different than the way |awaf| Behavioral DoS feature identifies attacks and attackers!
 
 
 Review Behavioral DoS Settings
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Having reviewed the options for configuring Stress-based dos mitigation, now let's examine the options required for configuring |awaf|'s Behavioral DOS mitigations.
+Having reviewed the options for configuring Stress-based DoS mitigation now let's examine the options required for configuring |awaf|'s Behavioral DoS mitigations.
 
 |bados|
 
-1. **Bad Actors Behavior Detection**
-   Determines whether Behavioral DoS engine tracks and attempts to identify the bad actors contributing to a given set of malicious traffic.  When Bad Actor Behavior Detection is enabled, once |awaf| detects server stress  and identifies a set of malicious traffic contributing to the server stress, the Behavioral DoS engine then attempts to identify what source IP addresses are generating the malicious traffic, and what percentage of malicious traffic a given bad actor is contributing.  Bad actors, are mitigated at transport layer via slowdown mitigation techniques, and the rate at which they are mitigated is directly related to their percentage of contribution to the malicious traffic set, and the migitation mode selected.
+**(#1) Bad Actors Behavior Detection -** Determines whether Behavioral DoS engine tracks and attempts to identify the bad actors contributing to a given set of malicious traffic.  When Bad Actor Behavior Detection is enabled, once |awaf| detects server stress  and identifies a set of malicious traffic contributing to the server stress the Behavioral DoS engine then attempts to identify what source IP addresses are generating the malicious traffic and what percentage of malicious traffic a given bad actor is contributing.  Bad actors are mitigated at transport layer via slowdown mitigation techniques, and the rate at which they are mitigated is directly related to their percentage of contribution to the malicious traffic set and the migitation mode selected.
 
-2. **Use TLS patterns as part of host identification**
-   When detecting Bad Actors using the L3 source address traffic behind a NAT or other aggregator will all be treated the same.  As a consequence, if a NAT is added as a bad actor good traffic behind this NAT will also be mitigated.  With this option enabled, disabled by default for backward compatability, |awaf| will generate a fingerprint using the parts of the TLS Client Hello message and concatenate this fingerprint with the SRC IP to identify individual bad actors behind a NAT.
+**(#2) Use TLS patterns as part of host identification -** When detecting Bad Actors using the L3 source address, traffic behind a NAT or other aggregator will all be treated the same.  As a consequence, if a NAT is added as a bad actor good traffic behind this NAT will also be mitigated.  With this option enabled |awaf| will generate a fingerprint using the parts of the TLS Client Hello message and concatenate this fingerprint with the SRC IP to identify individual bad actors behind a NAT.
 
-3. **Request Signature Detection**
-   Determines whether Behavioral DoS engine will attempt to generate a traffic signature to block anamolous traffic.  |awaf| Behavioral DoS feature is in a permanent learning state, always tracking application requests, and the construction of these requests, and then comparing to an evolving baseline.  When Request Signatures Detection is enabled, once |awaf| detects server stress, it looks to identify traffic characteristics which have deviated from the baseline.  If there are deviating characteristics, the Behavioral DoS engine, then dynamically generates a signature based on these deviating characteristics to block anamolous traffic. 
+**(#3) Request Signature Detection -** Determines whether Behavioral DoS engine will attempt to generate a traffic signature to block anamolous traffic.  |awaf| Behavioral DoS feature is in a permanent learning state always tracking application requests and the construction of these requests and comparing to an evolving baseline.  When Request Signatures Detection is enabled, once |awaf| detects server stress, it looks to identify traffic characteristics which have deviated from the baseline.  If there are deviating characteristics the Behavioral DoS engine then dynamically generates a signature based on these deviating characteristics to block anamolous traffic. 
 
       .. NOTE:: In addition to generating signatures the Behavioral DoS Engine also continually evaluates the signature for efficacy, minimizing the risk of signature becoming false positive and blocking known good traffic.
 
-4. **Accelerated HTTP signatures**
-   Accelerated HTTP signatures allow some platforms to store HTTP signatures in hardware for improved performance.  The feature allows L7 attacks to mitigated at L4 in hardware.  Due to the feature operating in hardware and prior to TLS decryption it works only for HTTP traffic.  Additionally, signature is processed before in HTTP whitelist, geolocation filtering, or VLAN/Syn-cookie whitelists.  
-   
-5. **TLS fingerprinting signatures**
-   This option differs from the above TLS pattern feature in that it isn't using a TLS signature to identify a particular host, but instead this features is looking to identify commonality in the TLS Client Hellos for bad traffic.  With this feature enabled, a new bad actor will be mitigated immediately as long as the TLS fingerprint matches a signature already associated with malicious traffic (not hosts).  This feature looks to mitigate bad behavior not just bad actors.
+**(#4) Accelerated HTTP signatures -** Accelerated HTTP signatures allow some platforms to store HTTP signatures in hardware for improved performance.  The feature allows L7 attacks to mitigated at L4 in hardware.  Due to the feature operating in hardware and prior to TLS decryption it works only for HTTP traffic.  Additionally, the signature is processed before an HTTP whitelist, geolocation filtering, or VLAN/Syn-cookie whitelists, so those features are incompatible with Accelerated HTTP Signatures.
 
-6. **Use Approved Signatures Only**
-   By default, when Request Signatures Detection is enabled, |awaf| will generate and use dynamically generated attack signatures as defined by the mitigation mode selection.  By enabling this option, the administrator overrides this behavior, and forces a manual step to review and approve the signature prior to any mitigations taking effect.  Signatures can be reviewed from |awaf| GUI via **Security** -> **DoS Protection** -> **Signatures**.
+**(#5) TLS fingerprinting signatures -** This option differs from the above TLS pattern feature in that it isn't using a TLS signature to identify a particular host, but instead this features is looking to identify commonality in the TLS Client Hellos used in bad traffic.  With this feature enabled a new bad actor will be mitigated immediately as long as the TLS fingerprint matches a signature already associated with malicious traffic (not host).  This feature looks to mitigate bad behavior not just bad actors.
+
+**(#6) Use Approved Signatures Only -** By default, when Request Signatures Detection is enabled |awaf| will generate and use dynamically generated attack signatures as defined by the mitigation mode selection.  By enabling this option, the administrator overrides this behavior and forces a manual step to review and approve the signature prior to any mitigations taking effect.  Signatures can be reviewed from |awaf| GUI via **Security** -> **DoS Protection** -> **Signatures**.
 
 
       |sigs-approval|
@@ -71,8 +69,7 @@ Having reviewed the options for configuring Stress-based dos mitigation, now let
       Once a signature has been approved, the Signature Approval State for the signature will change to "Manually-approved".  When approved signatures only is selected, only signatures which have been approved will be active.
 
 
-4. **Mitigation**
-   Defines the mitigation mode for |awaf| Behavioral DoS.  Options include:
+**(#7) Mitigation -** Defines the mitigation mode for |awaf| Behavioral DoS.  Options include:
 
       * **No Mitigation**: 
          * Monitors traffic, generates signatures, and identifies bad actors, but does not perform any mitigation.
@@ -93,7 +90,7 @@ Having reviewed the options for configuring Stress-based dos mitigation, now let
          * If necessary, limits the number of all concurrent connections based on server health
          * **Proactively** performs all protection actions, even before attack detection, increasing impact of protection techniques.
 
-   |awaf| mitigates DoS with the most effective and efficient method available, and as quickly as possible to restore server health.  Meaning, the mitigation method will often change over time as more data is learned and analyzed.  For example, at the onset of an attack, |awaf| may apply global rate limiting in an attempt to mitigate an onslaught of traffic.  Then, as the signature engine has observed enough traffic to identify malicious traffic and generate a signature, the Behavioral DoS engine will begin mitigating with request signatures and discontinue global rate limiting.  Finally, as bad actors are identified, traffic from those sources is mitigated using layer four slowdown mechanisms, and request signatures are only used for traffic matching the signature and not in the bad actor list.  This approach allows |awaf| to perform better under attack, and mimimizes the risk of blocking good traffic while mitigating DoS.
+   |awaf| mitigates DoS with the most effective and efficient method available and as quickly as possible to restores server health.  Meaning, the mitigation method will often change over time as more data is learned and analyzed.  For example, at the onset of an attack |awaf| may apply global rate limiting in an attempt to mitigate an onslaught of traffic.  Then, as the signature engine has observed enough traffic to identify malicious traffic and generate a signature, the Behavioral DoS engine will begin mitigating with request signatures and discontinue global rate limiting.  Finally, as bad actors are identified, traffic from those sources is mitigated using layer four slowdown mechanisms and request signatures are only used for traffic matching the signature and not in the bad actor list.  This approach allows |awaf| to perform better under attack and mimimizes the risk of blocking good traffic while mitigating DoS.
 
 
 
@@ -107,18 +104,18 @@ After reviewing several options for both Stress-based and Behavioral DoS feature
 
    * Both Stress-based and Behavioral DoS protection features continually monitor application server performance for signs of server stress.  Both features will consider server stress as a key component in detecting an attack, and neither will trigger a mitigation if the server is perceived to be healthy.  
 
-   * Stress-based and TPS based DoS features can detect DoS attacks across a pre-defined set of detection criteria (source IP, URL, device ID, geolocation, site).  Behavioral DoS is not constrained to a pre-defined set of detection criteria, but instead is a self adjusting dynamic DoS defense system which can detect DoS across hundreds of traffic predicates.  As a result, Behavioral DoS, is much more effective in mitigating multi-vector layer seven DoS attacks which mutate over time.  Conversely, TPS and/or Stress-based DoS features are much better at defining specific rate limits for traffic entering your application.
+   * Stress-based and TPS based DoS features can detect DoS attacks across a pre-defined set of detection criteria (source IP, URL, device ID, geolocation, site).  Behavioral DoS is not constrained to a pre-defined set of detection criteria, but instead is a self adjusting dynamic DoS defense system which can detect DoS across hundreds of traffic predicates.  As a result, Behavioral DoS, is much more effective in mitigating multi-vector L7 DoS attacks which mutate over time.  Conversely, TPS and/or Stress-based DoS features are much better at defining specific rate limits for traffic entering your application.
 
 
 
 .. |stressbased| image:: _images/stressbased.png
-   :width: 6.59740in
-   :height: 5.53203in
+   :width: 10.259740in
+   :height: 8.53203in
 
 .. |bados| image:: _images/bados.png
-   :width: 6.59740in
-   :height: 3.33203in
+   :width: 10.259740in
+   :height: 6.33203in
 
 .. |sigs-approval| image:: _images/sigs-approval.png
-   :width: 6.59740in
-   :height: 2.33203in
+   :width: 10.259740in
+   :height: 3.33203in
