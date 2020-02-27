@@ -35,7 +35,7 @@ In the section you will create a DoS profile with **Behavioral Detection and Ana
 
    b. Click **Edit** on the rightside of the row labelled **Behavioral Detection and Mitigation**
    
-   c. Under **Behavioral Detection and Mitigation** check the **Request signatures detection** and set the **Mitigation** to **Standard**.  For now, please leave **bad actors detection**, **Accelerated HTTP signatures**, and **TLS fingerprinting signatures** unchecked.
+   c. Under **Behavioral Detection and Mitigation** check the **Request signatures detection** and set the **Mitigation** to **Standard**.  For now, please leave **Bad Actors Detection**, **Accelerated HTTP Signatures**, and **TLS fingerprinting signatures** unchecked.
 
    d. Click **Update** in the lower left-hand corner. Collapse all the sections, and **Behavioral & Stress-based Detection** should match the figure below.
 
